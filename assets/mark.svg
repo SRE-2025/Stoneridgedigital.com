@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 168" fill="none" role="img" aria-label="Stoneridge Digital">
+  <defs>
+    <clipPath id="badgeClip">
+      <path d="M100 24 L172 146 L28 146 Z"/>
+    </clipPath>
+  </defs>
+  <!-- Badge: rounded triangle, cream interior, thick forest border -->
+  <path d="M100 24 L172 146 L28 146 Z" fill="#f4eddb" stroke="#2f4a37" stroke-width="15" stroke-linejoin="round"/>
+  <g clip-path="url(#badgeClip)">
+    <!-- main dark mountain: clean silhouette, dominant, ridge steps down to the right -->
+    <path d="M30 148 L100 64 L124 98 L138 88 L152 112 L172 148 Z" fill="#2f4a37"/>
+    <!-- lighter sage face on the front-left of the peak -->
+    <path d="M100 64 L66 118 L98 140 L106 104 Z" fill="#7d9270"/>
+  </g>
+</svg>

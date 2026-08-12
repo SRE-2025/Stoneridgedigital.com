@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Instant SEO Audit — Stoneridge Digital</title>
+<meta name="description" content="Get a free, instant SEO audit of your website from Stoneridge Digital. Real Lighthouse scores, prioritized fixes, and a branded report sent to your inbox.">
+<link rel="canonical" href="https://stoneridgedigital.com/seo-audit.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Free Instant SEO Audit — Stoneridge Digital">
+<meta property="og:description" content="Get a free, instant SEO audit — real scores, prioritized fixes, delivered to your inbox.">
+<meta property="og:url" content="https://stoneridgedigital.com/seo-audit.html">
+<meta property="og:site_name" content="Stoneridge Digital">
+<meta property="og:image" content="https://stoneridgedigital.com/assets/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://stoneridgedigital.com/assets/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Stoneridge Digital","url":"https://stoneridgedigital.com","telephone":"+1-972-313-5141","email":"admin@stoneridgedigital.com","logo":"https://stoneridgedigital.com/assets/mark.png","areaServed":"United States","priceRange":"$$"}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=1784846481">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f4a37'/%3E%3Cpath d='M6 24 L16 9 L26 24 Z' fill='%23f4eddb'/%3E%3Cpath d='M9 24 L16 13 L23 24 Z' fill='%232f4a37'/%3E%3C/svg%3E">
+<style>
+  .audit-hero { padding-top: 150px; padding-bottom: 30px; }
+  .audit-form-card {
+    max-width: 720px; margin: 0 auto; padding: 40px; border-radius: var(--radius-lg);
+    border: 1px solid var(--line); background: var(--paper-soft); box-shadow: var(--shadow);
+  }
+  .audit-input-row { display: grid; grid-template-columns: 1fr auto; gap: 14px; }
+  @media (max-width: 620px){ .audit-input-row { grid-template-columns: 1fr; } }
+  .audit-stage { display: none; }
+  .audit-stage.active { display: block; animation: fadeUp .6s var(--ease-out); }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+  /* Loading */
+  .scan { text-align: center; padding: 24px 0; }
+  .scan-ring { width: 120px; height: 120px; margin: 0 auto 26px; position: relative; }
+  .scan-ring svg { transform: rotate(-90deg); }
+  .scan-ring .track { stroke: var(--line); }
+  .scan-ring .fill { stroke: var(--copper); stroke-linecap: round; transition: stroke-dashoffset .4s linear; }
+  .scan-ring .pct { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-size: 1.8rem; color: var(--forest); }
+  .scan-steps { max-width: 380px; margin: 0 auto; text-align: left; }
+  .scan-step { display: flex; align-items: center; gap: 12px; padding: 9px 0; color: var(--sage-soft); font-size: 0.95rem; transition: color .3s; }
+  .scan-step.done { color: var(--ink); }
+  .scan-step .tick { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--line); display: grid; place-items: center; flex: none; color: #fff; font-size: 0.7rem; }
+  .scan-step.done .tick { background: var(--forest); border-color: var(--forest); }
+
+  /* Report */
+  .report { max-width: 900px; margin: 0 auto; }
+  .report-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; padding-bottom: 24px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+  .report-head .site { font-family: var(--display); font-size: 1.7rem; color: var(--ink); word-break: break-all; }
+  .report-head small { color: var(--sage-soft); }
+  .overall { display: flex; align-items: center; gap: 16px; }
+  .overall .big { font-family: var(--display); font-size: 3.4rem; line-height: 1; }
+  .score-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 38px; }
+  @media (max-width: 680px){ .score-grid { grid-template-columns: repeat(2,1fr); } }
+  .score-card { padding: 22px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper-soft); text-align: center; box-shadow: var(--shadow-sm); }
+  .gauge { width: 92px; height: 92px; margin: 0 auto 12px; position: relative; }
+  .gauge svg { transform: rotate(-90deg); }
+  .gauge .val { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--display); font-size: 1.5rem; }
+  .score-card .cap { color: var(--sage); font-size: 0.85rem; letter-spacing: 0.03em; }
+  .good { color: #3f7d46; } .ok { color: var(--copper); } .bad { color: #c0492f; }
+  .stroke-good { stroke: #3f7d46; } .stroke-ok { stroke: var(--copper); } .stroke-bad { stroke: #c0492f; }
+
+  .findings h3 { font-size: 1.4rem; margin-bottom: 20px; }
+  .finding { display: flex; gap: 16px; padding: 18px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--paper-soft); margin-bottom: 12px; }
+  .finding .badge { flex: none; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; font-size: 0.8rem; font-weight: 700; }
+  .finding.pass .badge { background: rgba(63,125,70,0.14); color: #3f7d46; }
+  .finding.warn .badge { background: rgba(181,106,51,0.14); color: var(--copper); }
+  .finding.fail .badge { background: rgba(192,73,47,0.12); color: #c0492f; }
+  .finding b { display: block; margin-bottom: 3px; color: var(--ink); }
+  .finding p { margin: 0; color: var(--sage); font-size: 0.9rem; }
+  .report-cta { margin-top: 38px; padding: 40px 34px; border-radius: var(--radius-lg); background: var(--forest); color: var(--cream); text-align: center; position: relative; overflow: hidden; }
+  .report-cta .topo { position: absolute; inset: 0; opacity: 0.3; }
+  .report-cta h3 { color: var(--cream); position: relative; }
+  .report-cta p { position: relative; }
+  .emailed-note { text-align:center; color: rgba(244,237,219,0.8); font-size: 0.9rem; margin-top: 18px; position: relative; }
+  .err { color: #c0492f; text-align: center; margin-top: 14px; font-size: 0.92rem; }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<nav class="nav" id="nav">
+  <a href="index.html" class="brand"><img class="brand-full" src="assets/logo.png" alt="Stoneridge Digital" onload="this.closest('.brand').classList.add('has-logo')" onerror="this.remove()"><img class="mark-img" src="assets/mark.png" alt=""><span class="word"><span class="a">STONERIDGE</span><span class="b">DIGITAL</span></span></a>
+  <div class="nav-links">
+    <div class="nav-dd">
+      <a href="services.html" class="dd-toggle">Services <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="dd-menu">
+        <a href="websites.html"><b>Website Design</b><small>Custom sites that convert</small></a>
+        <a href="seo.html"><b>SEO</b><small>Local &amp; advanced search</small></a>
+        <a href="advertising.html"><b>Advertising</b><small>Google &amp; paid media</small></a>
+        <a href="social-content.html"><b>Social &amp; Content</b><small>Filmed, edited, posted</small></a>
+        <a href="automation.html"><b>Automation &amp; AI</b><small>Reviews, booking, systems</small></a>
+      </div>
+    </div>
+    <a href="work.html">Work</a>
+    <a href="about.html">About</a>
+    <a href="book.html">Book a Call</a>
+  </div>
+  <div class="nav-cta">
+    <a href="book.html" class="btn btn-primary" data-hover>Get Started</a>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close" id="menuClose" aria-label="Close">&times;</button>
+  <a href="services.html">Services</a>
+  <a href="work.html">Work</a>
+  <a href="about.html">About</a>
+  <a href="process.html">Process</a>
+  <a href="faq.html">FAQ</a>
+  <a href="book.html">Book a Call</a>
+</div>
+
+<header class="hero audit-hero" id="top">
+  <div class="wrap" style="max-width:820px;text-align:center;">
+    <div class="hero-badge reveal in"><span class="dot"></span> Free · Instant · No signup</div>
+    <h1 class="h-xl reveal in" style="font-size:clamp(2.6rem,7vw,5rem);">Is your website<br><span class="serif-italic">costing you customers?</span></h1>
+    <p class="lead reveal in" data-delay="1" style="margin:22px auto 0;">Enter your domain for an instant SEO &amp; performance audit — real scores, prioritized fixes, and a full branded report sent straight to your inbox.</p>
+  </div>
+</header>
+
+<section style="padding-top:6px;">
+  <div class="wrap">
+
+    <!-- STAGE 1: FORM -->
+    <div class="audit-stage active" id="stageForm">
+      <form class="audit-form-card reveal in" id="auditForm">
+        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+        <input type="hidden" name="subject" value="New SEO Audit lead — Stoneridge Digital">
+        <input type="hidden" name="from_name" value="Stoneridge Digital Audit Tool">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="field">
+          <label>Your website</label>
+          <div class="audit-input-row">
+            <input name="website" id="siteInput" placeholder="yourbusiness.com" required autocomplete="url">
+            <button type="submit" class="btn btn-copper btn-lg" data-hover style="white-space:nowrap;">Run my audit →</button>
+          </div>
+        </div>
+        <div class="form-row" style="margin-top:6px;">
+          <div class="field"><label>Name</label><input name="name" required placeholder="Jane Smith"></div>
+          <div class="field"><label>Email (where we send your report)</label><input type="email" name="email" required placeholder="you@business.com"></div>
+        </div>
+        <p class="form-note">We'll analyze your site live and email a full branded report to you — and to our strategy team, so we can follow up with tailored fixes.</p>
+        <p class="err" id="formErr" style="display:none;"></p>
+      </form>
+    </div>
+
+    <!-- STAGE 2: SCANNING -->
+    <div class="audit-stage" id="stageScan">
+      <div class="audit-form-card">
+        <div class="scan">
+          <div class="scan-ring">
+            <svg width="120" height="120" viewBox="0 0 120 120">
+              <circle class="track" cx="60" cy="60" r="52" fill="none" stroke-width="8"/>
+              <circle class="fill" id="scanFill" cx="60" cy="60" r="52" fill="none" stroke-width="8" stroke-dasharray="326.7" stroke-dashoffset="326.7"/>
+            </svg>
+            <div class="pct" id="scanPct">0%</div>
+          </div>
+          <div class="scan-steps" id="scanSteps">
+            <div class="scan-step" data-i="0"><span class="tick">✓</span> Crawling homepage &amp; metadata</div>
+            <div class="scan-step" data-i="1"><span class="tick">✓</span> Measuring performance &amp; Core Web Vitals</div>
+            <div class="scan-step" data-i="2"><span class="tick">✓</span> Auditing on-page SEO signals</div>
+            <div class="scan-step" data-i="3"><span class="tick">✓</span> Checking mobile &amp; accessibility</div>
+            <div class="scan-step" data-i="4"><span class="tick">✓</span> Compiling your branded report</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3: REPORT -->
+    <div class="audit-stage" id="stageReport">
+      <div class="report" id="reportBody"><!-- injected --></div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer on-dark" style="margin-top:20px;">
+  <svg class="topo" viewBox="0 0 1440 300" preserveAspectRatio="xMidYMid slice" fill="none" stroke="rgba(244,237,219,0.4)" stroke-width="1.2">
+    <path d="M-20 90 Q300 40 720 90 T1460 80"/><path d="M-20 150 Q360 100 720 150 T1460 140"/><path d="M-20 220 Q300 170 720 220 T1460 210"/>
+  </svg>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:0;">
+      <span>© <span id="year"></span> Stoneridge Digital — Your one stop for marketing strategies.</span>
+      <span><a href="tel:9723135141" style="color:var(--cream);">972-313-5141</a> · <a href="mailto:admin@stoneridgedigital.com" style="color:#e0a86c;">admin@stoneridgedigital.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/app.js?v=1784846481"></script>
+<script src="assets/audit.js?v=1784831161"></script>
+</body>
+</html>
