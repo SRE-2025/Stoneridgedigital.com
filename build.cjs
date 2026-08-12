@@ -701,6 +701,10 @@ pages.push({
 
 /* ---------- Service-area (city) pages — genuinely localized ---------- */
 const LOCATIONS = [
+  { city: "Austin", angle: "Austin is one of the most competitive markets in the country — tech, startups, and thousands of local businesses all fighting for attention. Standing out here takes a website and a local-SEO strategy built to win.", areas: "Downtown, South Congress (SoCo), East Austin, The Domain, Zilker, Mueller, Westlake and Round Rock", landmark: "from South Congress to The Domain" },
+  { city: "Round Rock", angle: "Round Rock's fast growth just north of Austin makes it a prime market — if local customers can actually find you.", areas: "Downtown Round Rock, La Frontera, Teravista and the Dell area", landmark: "from Old Settlers Park to La Frontera" },
+  { city: "Cedar Park", angle: "Cedar Park's booming family community rewards businesses with a sharp, trustworthy local presence.", areas: "Buttercup Creek, the Bell District, Twin Creeks and the 1890 Ranch area", landmark: "around the Bell District and 1890 Ranch" },
+  { city: "Georgetown", angle: "Georgetown blends historic charm with rapid growth — a great place to build a loyal local following online.", areas: "the historic Downtown Square, Sun City, Wolf Ranch and Berry Creek", landmark: "around the Georgetown Square" },
   { city: "Dallas", angle: "Dallas is a big, competitive market — standing out takes a site and a strategy built to cut through the noise.", areas: "Uptown, Deep Ellum, Bishop Arts, Oak Cliff, Lakewood and Preston Hollow", landmark: "from the Arts District to the Bishop Arts shops" },
   { city: "Fort Worth", angle: "Fort Worth blends deep roots with fast growth. We help local businesses look modern without losing that hometown feel.", areas: "Sundance Square, West 7th, the Near Southside, the TCU area and the Stockyards", landmark: "from Sundance Square to the Stockyards" },
   { city: "Plano", angle: "Plano is affluent and crowded with corporate neighbors. Local businesses here win on trust, reviews and a polished presence.", areas: "Legacy West, Downtown Plano, Willow Bend and West Plano", landmark: "from Legacy West to historic Downtown Plano" },
@@ -718,7 +722,7 @@ const cityPage = (loc) => {
     [`How do you help ${c} businesses get found locally?`, `We combine a fast, custom website with local SEO — optimizing your Google Business Profile, building consistent local citations, and creating content aimed at the searches ${c} customers actually make.`],
     [`Do we have to meet in person?`, `We're happy to meet locally ${loc.landmark}, but most of our work happens over calls and email — so we serve ${c} businesses just as easily whether you're around the corner or across the metro.`],
   ];
-  const content = `${pageHero({ crumb: `<a href="locations.html">Locations</a> / ${c}`, eyebrow: `${c}, Texas`, title: `Marketing built for<br>${c} businesses.`, lead: loc.angle })}
+  const content = `${pageHero({ crumb: `<a href="locations.html">Locations</a> / ${c}`, eyebrow: `${c} marketing company`, title: `The marketing company<br>built for ${c} businesses.`, lead: loc.angle })}
 <section><div class="wrap"><div class="two-col">
   <div class="reveal" data-anim="left">
     <p class="eyebrow">Local, done right</p>
@@ -746,7 +750,7 @@ ${ctaBand(`Grow your ${c} business.`, `Book a free call and we'll map the fastes
     { "@context": "https://schema.org", "@type": "Service", serviceType: "Digital marketing", name: `Digital marketing in ${c}, TX`, areaServed: { "@type": "City", name: `${c}, Texas` }, provider: { "@type": "Organization", name: "Stoneridge Digital", url: DOMAIN } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: localFaqs.map(f => ({ "@type": "Question", name: f[0], acceptedAnswer: { "@type": "Answer", text: f[1] } })) },
   ];
-  return { file: `${slug}.html`, html: layout({ path: `${slug}.html`, title: `Marketing in ${c}, TX — Stoneridge Digital`, desc: `Digital marketing for ${c}, Texas businesses — custom websites, local SEO, ads, social & automation from Stoneridge Digital.`, content, schema }) };
+  return { file: `${slug}.html`, html: layout({ path: `${slug}.html`, title: `${c} Marketing Company | Web, SEO & Ads — Stoneridge Digital`, desc: `Looking for a marketing company in ${c}, TX? Stoneridge Digital builds custom websites and runs local SEO, Google Ads, social & automation for ${c} businesses. Book a free call.`, content, schema }) };
 };
 const cityPages = LOCATIONS.map(cityPage);
 cityPages.forEach(p => pages.push(p));
@@ -757,8 +761,8 @@ pages.push({
   html: layout({
     path: "locations.html",
     title: "Areas We Serve — Stoneridge Digital",
-    desc: "Stoneridge Digital serves local businesses across the DFW metro — Dallas, Fort Worth, Plano, Frisco, McKinney, Arlington, Irving & Denton.",
-    content: `${pageHero({ center: true, eyebrow: "Areas we serve", title: "Local marketing<br>across DFW.", lead: "We're based in Dallas–Fort Worth and work with local businesses right across the metro — and nationwide. Find your city below." })}
+    desc: "Stoneridge Digital serves local businesses across Texas — Austin, Round Rock, Cedar Park, Georgetown, Dallas, Fort Worth, Plano, Frisco & more.",
+    content: `${pageHero({ center: true, eyebrow: "Areas we serve", title: "Local marketing<br>across Texas.", lead: "From Austin to Dallas–Fort Worth, we help local businesses get found and grow — and we work with clients nationwide too. Find your city below." })}
 <section><div class="wrap"><div class="related">
   ${LOCATIONS.map((l, i) => `<a href="marketing-${l.city.toLowerCase().replace(/[^a-z]/g, "-")}.html" class="reveal" data-delay="${i % 3}">${l.city} ${arrow}</a>`).join("\n  ")}
 </div>
