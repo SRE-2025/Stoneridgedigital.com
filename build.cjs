@@ -417,7 +417,7 @@ pages.push({
     <div class="line" style="border-bottom:0;"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></span><span><small>Prefer a time?</small><b><a href="book.html">Book a call →</a></b></span></div>
   </div>
   <form class="form-card reveal" data-anim="right" id="contactForm">
-    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+    <input type="hidden" name="access_key" value="3e24fbee-675b-442e-a981-fde6a9d7ed4b">
     <input type="hidden" name="subject" value="New contact — Stoneridge Digital">
     <input type="hidden" name="from_name" value="Stoneridge Digital Website">
     <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">

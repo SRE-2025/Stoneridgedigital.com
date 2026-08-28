@@ -14,7 +14,7 @@
     PSI_KEY: "",
     // Web3Forms access key — receives every audit lead at admin@stoneridgedigital.com.
     // Free key at https://web3forms.com (enter admin@stoneridgedigital.com as the email).
-    WEB3FORMS_KEY: "YOUR_WEB3FORMS_ACCESS_KEY",
+    WEB3FORMS_KEY: "3e24fbee-675b-442e-a981-fde6a9d7ed4b",
     ADMIN_EMAIL: "admin@stoneridgedigital.com",
   };
 
