@@ -334,26 +334,38 @@ ${ctaBand()}`,
   }),
 });
 
-// Work
-const cases = [
-  ["Healthcare · SEO + Web", "ENT &amp; Sinus Practice", "A custom site, built to convert.", [["Website", "Custom-built &amp; hosted"], ["Local SEO", "On-page + citations"]]],
-  ["Dental · Social + Ads", "DFW Dental Practice", "A social presence, fully managed.", [["30/mo", "Posts produced"], ["4", "Platforms run"]]],
-  ["Podiatry · Full funnel", "Podiatry Clinic", "Every channel, one system.", [["Web + SEO", "The foundation"], ["Ads + Social", "Ongoing"]]],
-  ["Primary care · Reputation", "Primary Care Clinic", "Reputation, handled.", [["Reviews", "Automated"], ["GBP", "Optimized"]]],
-  ["Med spa · Brand + Web", "Aesthetics &amp; Med Spa", "A brand refresh that fits.", [["Brand", "Refined"], ["Website", "Rebuilt"]]],
-  ["Law · SEO + Ads", "Personal Injury Firm", "Found when it matters.", [["SEO", "Local + technical"], ["Ads", "Managed"]]],
+// Work — honest capabilities showcase (no invented client case studies)
+const workCaps = [
+  [`<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 15h6"/>`, "Custom Websites", "Fast, custom-built sites engineered to convert visitors into booked business — never a template."],
+  [`<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`, "Local SEO", "On-page, technical &amp; local citations so you show up when nearby customers are searching."],
+  [`<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/>`, "Google &amp; Paid Ads", "Targeted campaigns managed and optimized so every dollar is working toward booked jobs."],
+  [`<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>`, "Social &amp; Content", "Real content — filmed, edited &amp; posted across the platforms your customers actually use."],
+  [`<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`, "Automation &amp; AI", "Missed-call text-back, review requests &amp; after-hours booking so no lead ever slips away."],
+  [`<path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/>`, "Analytics &amp; Reporting", "Live dashboards and clear monthly reports — you always know exactly what's working."],
 ];
 pages.push({
   file: "work.html",
   html: layout({
     path: "work.html",
-    title: "Work — Stoneridge Digital",
-    desc: "A look at the local businesses we build for and the work we do across websites, SEO, social, ads and automation.",
-    content: `${pageHero({ center: true, eyebrow: "Selected work", title: "Real local businesses.<br>Real work.", lead: "A snapshot of the businesses we partner with and what we handle for them. Every engagement is custom." })}
-<section><div class="wrap"><div class="work-grid">
-  ${cases.map((c, i) => `<article class="case reveal" data-anim="${i % 2 ? "right" : "left"}" data-tilt><span class="platform">${c[0]}</span><div class="field">${c[1]}</div><h3>${c[2]}</h3><div class="metrics">${c[3].map(m => `<div><span>${m[0]}</span><small>${m[1]}</small></div>`).join("")}</div></article>`).join("\n  ")}
-</div></div></section>
-${ctaBand("Want to be next?", "Book a free call and we'll talk through what your business needs first.")}`,
+    title: "What We Do — Stoneridge Digital",
+    desc: "Everything Stoneridge Digital handles for local businesses — custom websites, local SEO, paid ads, social, automation and reporting, all under one roof.",
+    content: `${pageHero({ center: true, eyebrow: "What we do", title: "The work behind<br>a booked calendar.", lead: "We're a full-service growth partner for local businesses. Here's everything we handle so you don't have to juggle five different vendors." })}
+<section><div class="wrap">
+  <div class="sec-head center reveal"><p class="eyebrow">Capabilities</p><h2 class="h-lg">Everything under one roof.</h2></div>
+  <div class="inc-grid">
+  ${workCaps.map(([icon, t, d], i) => `<div class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${icon}</svg></div><h3>${t}</h3><p>${d}</p></div>`).join("\n  ")}
+  </div>
+</div></section>
+<section class="band-alt"><div class="wrap">
+  <div class="sec-head center reveal"><p class="eyebrow">How an engagement works</p><h2 class="h-lg">Built around your business.</h2><p>No two businesses get the same plan. We start where you'll see the fastest return, then expand as it works.</p></div>
+  <div class="rows" style="max-width:860px;margin:0 auto;">
+    <div class="rowi reveal" data-anim="left"><span class="rn">01</span><div><h3>Discover</h3><p>We dig into your market, competitors and current presence to find the clearest path forward — and set realistic expectations together.</p></div></div>
+    <div class="rowi reveal" data-anim="left"><span class="rn">02</span><div><h3>Build</h3><p>Your custom site, SEO foundation and tracking go live — engineered to convert and measure from day one.</p></div></div>
+    <div class="rowi reveal" data-anim="left"><span class="rn">03</span><div><h3>Amplify</h3><p>Ads, social and content start bringing qualified local traffic to your door, all managed for you.</p></div></div>
+    <div class="rowi reveal" data-anim="left"><span class="rn">04</span><div><h3>Refine</h3><p>We double down on what's working and report clearly every month. Steady, deliberate progress.</p></div></div>
+  </div>
+</div></section>
+${ctaBand("Want to see what we'd do for you?", "Book a free call and we'll map the fastest path for your business first — no pressure, no jargon.")}`,
   }),
 });
 
@@ -440,13 +452,53 @@ pages.push({
     path: "book.html",
     title: "Book a Call — Stoneridge Digital",
     desc: "Book a call with Stoneridge Digital — new client discovery, current client check-in, or a design & strategy session.",
-    content: `${pageHero({ center: true, eyebrow: "Let's talk", title: "Book a call that<br>fits where you are.", lead: "Pick the conversation that matches your moment — choose a time and it lands right on our calendar.", actions: false })}
-<section style="padding-top:10px;"><div class="wrap"><div class="book-grid">
-  <article class="book-card reveal" data-anim="left"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><h3>New Client Discovery</h3><p>Not a client yet? Let's map your market, goals &amp; the best first move.</p><a class="btn btn-primary" style="justify-content:center;" data-hover data-book="new" href="contact.html">Schedule discovery call</a></article>
-  <article class="book-card reveal" data-delay="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Current Client Check-in</h3><p>Already with us? Grab time for strategy, reporting, or anything on your mind.</p><a class="btn btn-ghost" style="justify-content:center;" data-hover data-book="current" href="contact.html">Schedule check-in</a></article>
-  <article class="book-card reveal" data-anim="right" data-delay="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Design / Strategy Call</h3><p>Ready to build or refresh? A working session on your website, brand &amp; campaigns.</p><a class="btn btn-ghost" style="justify-content:center;" data-hover data-book="design" href="contact.html">Schedule design call</a></article>
-</div>
-<p class="price-note" style="margin-top:34px;">Prefer email? <a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a> · Or call <a href="tel:9723135141">972-313-5141</a></p>
+    content: `${pageHero({ center: true, eyebrow: "Let's talk", title: "Book a call that<br>fits where you are.", lead: "Pick the conversation that matches your moment, tell us when works, and we'll confirm your time by email within one business day.", actions: false })}
+<section style="padding-top:10px;"><div class="wrap">
+  <div class="book-grid" id="trackCards">
+    <button type="button" class="book-card reveal" data-track="new" data-anim="left"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><h3>New Client Discovery</h3><p>Not a client yet? Let's map your market, goals &amp; the best first move.</p><span class="btn btn-primary" style="justify-content:center;pointer-events:none;">Schedule discovery call</span></button>
+    <button type="button" class="book-card reveal" data-track="current" data-delay="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Current Client Check-in</h3><p>Already with us? Grab time for strategy, reporting, or anything on your mind.</p><span class="btn btn-ghost" style="justify-content:center;pointer-events:none;">Schedule check-in</span></button>
+    <button type="button" class="book-card reveal" data-track="design" data-anim="right" data-delay="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Design / Strategy Call</h3><p>Ready to build or refresh? A working session on your website, brand &amp; campaigns.</p><span class="btn btn-ghost" style="justify-content:center;pointer-events:none;">Schedule design call</span></button>
+  </div>
+
+  <div class="join-card reveal" id="bookForm" style="max-width:680px;margin:44px auto 0;">
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="3e24fbee-675b-442e-a981-fde6a9d7ed4b">
+      <input type="hidden" name="subject" value="New call booking — Stoneridge Digital">
+      <input type="hidden" name="from_name" value="Stoneridge Digital · Book a Call">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="field"><label>What kind of call?</label>
+        <div class="pill-group" role="radiogroup" aria-label="Call type">
+          <label class="pill"><input type="radio" name="call_type" value="New Client Discovery" checked><span>New Client Discovery</span></label>
+          <label class="pill"><input type="radio" name="call_type" value="Current Client Check-in"><span>Current Client Check-in</span></label>
+          <label class="pill"><input type="radio" name="call_type" value="Design / Strategy Call"><span>Design / Strategy Call</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Name</label><input name="name" required placeholder="Jane Smith"></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@business.com"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><input name="phone" placeholder="(555) 123-4567"></div>
+        <div class="field"><label>Business <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><input name="business" placeholder="Your business name"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Preferred day</label><input type="date" name="preferred_date" required></div>
+        <div class="field"><label>Preferred time</label>
+          <select name="preferred_time">
+            <option>Morning (8am–12pm)</option>
+            <option>Early afternoon (12–3pm)</option>
+            <option>Late afternoon (3–6pm)</option>
+            <option>I'm flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Anything you'd like us to know? <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><textarea name="message" placeholder="A quick note about what you're hoping to cover..."></textarea></div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" data-hover id="contactSubmit">Request my time →</button>
+      <p class="form-privacy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg> This sends your request straight to us — we'll confirm the exact time by email within one business day.</p>
+      <p class="form-note" id="contactStatus" style="text-align:center;"></p>
+    </form>
+  </div>
+  <p class="price-note" style="margin-top:26px;">Prefer email? <a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a> · Or call <a href="tel:9723135141">972-313-5141</a></p>
 </div></section>`,
   }),
 });

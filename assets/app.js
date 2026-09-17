@@ -175,6 +175,37 @@
     });
   });
 
+  /* ---------- Booking page (book.html): track cards + call-type + date floor ---------- */
+  const bookForm = $("#bookForm");
+  if (bookForm) {
+    const subjEl = bookForm.querySelector("[name=subject]");
+    const trackToLabel = { new: "New Client Discovery", current: "Current Client Check-in", design: "Design / Strategy Call" };
+    const radios = $$("input[name=call_type]", bookForm);
+    const cards = $$("#trackCards [data-track]");
+    const syncSubject = () => {
+      const sel = bookForm.querySelector("input[name=call_type]:checked");
+      if (subjEl && sel) subjEl.value = "New call booking — " + sel.value;
+      cards.forEach(c => c.classList.toggle("is-active", sel && trackToLabel[c.dataset.track] === sel.value));
+    };
+    const selectTrack = (t) => {
+      const label = trackToLabel[t];
+      const r = radios.find(x => x.value === label);
+      if (r) { r.checked = true; syncSubject(); }
+    };
+    radios.forEach(r => r.addEventListener("change", syncSubject));
+    cards.forEach(btn => btn.addEventListener("click", () => {
+      selectTrack(btn.dataset.track);
+      bookForm.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    }));
+    // Preselect from ?track=
+    const q = new URLSearchParams(location.search).get("track");
+    if (q && trackToLabel[q]) selectTrack(q);
+    // Don't allow booking a day in the past
+    const dateEl = bookForm.querySelector("[name=preferred_date]");
+    if (dateEl) dateEl.min = new Date().toISOString().split("T")[0];
+    syncSubject();
+  }
+
   /* ---------- Contact form (Web3Forms → admin@stoneridgedigital.com) ---------- */
   const form = $("#contactForm");
   if (form) {

@@ -41,7 +41,7 @@
 
 /* ---------- Reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body {
   margin: 0;
   font-family: var(--sans);
@@ -180,7 +180,7 @@ h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.03; m
 @media (max-width: 940px) { .hero-visual { max-width: 420px; } .hero-visual .float-badge { left: auto; right: 10px; } }
 
 /* ---------- Marquee ---------- */
-.marquee-band { padding: 30px 0; border-block: 1px solid var(--line-soft); background: var(--paper-alt); }
+.marquee-band { padding: 30px 0; border-block: 1px solid var(--line-soft); background: var(--paper-alt); overflow: hidden; }
 .marquee-label { text-align: center; font-size: 0.72rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--sage-soft); margin-bottom: 20px; }
 .marquee { display: flex; gap: 56px; width: max-content; animation: slide 36s linear infinite; }
 .marquee:hover { animation-play-state: paused; }
@@ -723,6 +723,17 @@ html.js .reveal[data-anim="left"].in, html.js .reveal[data-anim="right"].in, htm
 .nav-dd.open .dd-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
 .nav-dd.open .dd-toggle svg { transform: rotate(180deg); }
 .dd-toggle:focus-visible { outline: 2px solid var(--copper); outline-offset: 3px; border-radius: 6px; }
+
+/* ---------- Booking: call-type pills + selectable track cards ---------- */
+.pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { position: relative; display: inline-flex; align-items: center; cursor: pointer; }
+.pill input { position: absolute; opacity: 0; pointer-events: none; }
+.pill span { display: inline-block; padding: 10px 18px; border-radius: 100px; border: 1.5px solid var(--line); background: #fff; color: var(--ink); font-size: 0.9rem; font-weight: 500; transition: border-color .25s, background .25s, color .25s; }
+.pill:hover span { border-color: var(--sage); }
+.pill input:checked + span { background: var(--forest); border-color: var(--forest); color: var(--cream); }
+.pill input:focus-visible + span { outline: 2px solid var(--copper); outline-offset: 2px; }
+button.book-card { font: inherit; text-align: left; cursor: pointer; width: 100%; }
+button.book-card.is-active { border-color: var(--forest); box-shadow: var(--shadow); }
 
 /* ---------- Form validation states ---------- */
 form input.valid, form textarea.valid { border-color: #5a8f57; }

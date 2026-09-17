@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Book a call with Stoneridge Digital — new client discovery, current client check-in, or a design & strategy session.">
 <meta name="twitter:image" content="https://stoneridgedigital.com/assets/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=1787891165140">
+<link rel="stylesheet" href="assets/styles.css?v=1789584334395">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f4a37'/%3E%3Cpath d='M6 24 L16 9 L26 24 Z' fill='%23f4eddb'/%3E%3Cpath d='M9 24 L16 13 L23 24 Z' fill='%232f4a37'/%3E%3C/svg%3E">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":["Organization","LocalBusiness"],"name":"Stoneridge Digital","url":"https://stoneridgedigital.com","telephone":"+1-972-313-5141","email":"admin@stoneridgedigital.com","image":"https://stoneridgedigital.com/assets/mark.png","logo":"https://stoneridgedigital.com/assets/mark.png","description":"Full-service marketing agency for local businesses — custom websites, SEO, paid ads, social media & automation.","areaServed":"United States","address":{"@type":"PostalAddress","addressRegion":"TX","addressLocality":"Dallas–Fort Worth","addressCountry":"US"},"priceRange":"$$"}</script>
@@ -73,16 +73,56 @@
     
     <p class="eyebrow reveal in">Let's talk</p>
     <h1 class="h-xl reveal in" style="font-size:clamp(2.5rem,6.5vw,4.6rem);">Book a call that<br>fits where you are.</h1>
-    <p class="lead reveal in" data-delay="1" style="margin-inline:auto;">Pick the conversation that matches your moment — choose a time and it lands right on our calendar.</p>
+    <p class="lead reveal in" data-delay="1" style="margin-inline:auto;">Pick the conversation that matches your moment, tell us when works, and we'll confirm your time by email within one business day.</p>
     
   </div>
 </header>
-<section style="padding-top:10px;"><div class="wrap"><div class="book-grid">
-  <article class="book-card reveal" data-anim="left"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><h3>New Client Discovery</h3><p>Not a client yet? Let's map your market, goals &amp; the best first move.</p><a class="btn btn-primary" style="justify-content:center;" data-hover data-book="new" href="contact.html">Schedule discovery call</a></article>
-  <article class="book-card reveal" data-delay="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Current Client Check-in</h3><p>Already with us? Grab time for strategy, reporting, or anything on your mind.</p><a class="btn btn-ghost" style="justify-content:center;" data-hover data-book="current" href="contact.html">Schedule check-in</a></article>
-  <article class="book-card reveal" data-anim="right" data-delay="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Design / Strategy Call</h3><p>Ready to build or refresh? A working session on your website, brand &amp; campaigns.</p><a class="btn btn-ghost" style="justify-content:center;" data-hover data-book="design" href="contact.html">Schedule design call</a></article>
-</div>
-<p class="price-note" style="margin-top:34px;">Prefer email? <a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a> · Or call <a href="tel:9723135141">972-313-5141</a></p>
+<section style="padding-top:10px;"><div class="wrap">
+  <div class="book-grid" id="trackCards">
+    <button type="button" class="book-card reveal" data-track="new" data-anim="left"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg></div><h3>New Client Discovery</h3><p>Not a client yet? Let's map your market, goals &amp; the best first move.</p><span class="btn btn-primary" style="justify-content:center;pointer-events:none;">Schedule discovery call</span></button>
+    <button type="button" class="book-card reveal" data-track="current" data-delay="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h3>Current Client Check-in</h3><p>Already with us? Grab time for strategy, reporting, or anything on your mind.</p><span class="btn btn-ghost" style="justify-content:center;pointer-events:none;">Schedule check-in</span></button>
+    <button type="button" class="book-card reveal" data-track="design" data-anim="right" data-delay="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></div><h3>Design / Strategy Call</h3><p>Ready to build or refresh? A working session on your website, brand &amp; campaigns.</p><span class="btn btn-ghost" style="justify-content:center;pointer-events:none;">Schedule design call</span></button>
+  </div>
+
+  <div class="join-card reveal" id="bookForm" style="max-width:680px;margin:44px auto 0;">
+    <form id="contactForm">
+      <input type="hidden" name="access_key" value="3e24fbee-675b-442e-a981-fde6a9d7ed4b">
+      <input type="hidden" name="subject" value="New call booking — Stoneridge Digital">
+      <input type="hidden" name="from_name" value="Stoneridge Digital · Book a Call">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+      <div class="field"><label>What kind of call?</label>
+        <div class="pill-group" role="radiogroup" aria-label="Call type">
+          <label class="pill"><input type="radio" name="call_type" value="New Client Discovery" checked><span>New Client Discovery</span></label>
+          <label class="pill"><input type="radio" name="call_type" value="Current Client Check-in"><span>Current Client Check-in</span></label>
+          <label class="pill"><input type="radio" name="call_type" value="Design / Strategy Call"><span>Design / Strategy Call</span></label>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Name</label><input name="name" required placeholder="Jane Smith"></div>
+        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@business.com"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Phone <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><input name="phone" placeholder="(555) 123-4567"></div>
+        <div class="field"><label>Business <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><input name="business" placeholder="Your business name"></div>
+      </div>
+      <div class="form-row">
+        <div class="field"><label>Preferred day</label><input type="date" name="preferred_date" required></div>
+        <div class="field"><label>Preferred time</label>
+          <select name="preferred_time">
+            <option>Morning (8am–12pm)</option>
+            <option>Early afternoon (12–3pm)</option>
+            <option>Late afternoon (3–6pm)</option>
+            <option>I'm flexible</option>
+          </select>
+        </div>
+      </div>
+      <div class="field"><label>Anything you'd like us to know? <span style="color:var(--sage-soft);font-weight:400;">(optional)</span></label><textarea name="message" placeholder="A quick note about what you're hoping to cover..."></textarea></div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center;" data-hover id="contactSubmit">Request my time →</button>
+      <p class="form-privacy"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg> This sends your request straight to us — we'll confirm the exact time by email within one business day.</p>
+      <p class="form-note" id="contactStatus" style="text-align:center;"></p>
+    </form>
+  </div>
+  <p class="price-note" style="margin-top:26px;">Prefer email? <a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a> · Or call <a href="tel:9723135141">972-313-5141</a></p>
 </div></section>
 </main>
 <footer class="footer on-dark">
@@ -113,6 +153,6 @@
     </div>
   </div>
 </footer>
-<script src="assets/app.js?v=1787891165140"></script>
+<script src="assets/app.js?v=1789584334395"></script>
 </body>
 </html>
