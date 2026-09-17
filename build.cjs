@@ -19,6 +19,7 @@ const check = `<svg width="17" height="17" viewBox="0 0 24 24" fill="none" strok
 const SVCLINKS = [
   ["websites", "Website Design", "Custom sites that convert"],
   ["seo", "SEO", "Local &amp; advanced search"],
+  ["aeo", "AEO", "Get found in AI answers"],
   ["advertising", "Advertising", "Google &amp; paid media"],
   ["social-content", "Social &amp; Content", "Filmed, edited, posted"],
   ["automation", "Automation &amp; AI", "Reviews, booking, systems"],
@@ -168,6 +169,7 @@ ${footer()}
 const svcIcon = {
   websites: `<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 15h6"/>`,
   seo: `<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`,
+  aeo: `<path d="M12 3l1.7 4.6L18.5 9l-4.8 1.4L12 15l-1.7-4.6L5.5 9l4.8-1.4z"/><path d="M18.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>`,
   advertising: `<path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/>`,
   "social-content": `<rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.5"/><circle cx="17" cy="7" r="1"/>`,
   automation: `<path d="M12 3a5 5 0 015 5c0 3-2 4-2 7H9c0-3-2-4-2-7a5 5 0 015-5z"/><path d="M9 20h6M10 22h4"/>`,
@@ -203,7 +205,22 @@ const SERVICES = {
       ["Rank tracking & reporting", "Transparent monthly reporting on where you stand."],
     ],
     approach: ["We focus on the searches that actually bring you customers.", "SEO compounds — we build a foundation that keeps working over time.", "You'll always know what we're doing and why."],
-    related: ["websites", "advertising", "social-content"],
+    related: ["websites", "aeo", "social-content"],
+  },
+  aeo: {
+    label: "Answer Engine Optimization", eyebrow: "Answer Engine Optimization (AEO)",
+    title: "Show up when<br>AI does the answering.",
+    lead: "More and more customers ask ChatGPT, Gemini, Perplexity, and Google's AI for a recommendation instead of scrolling through search results. AEO is the work of making your business the one those engines understand, trust, and surface.",
+    includes: [
+      ["Entity &amp; knowledge setup", "We make your business a clear, consistent entity across the web so AI engines know exactly who you are and what you do."],
+      ["Structured data &amp; schema", "Machine-readable markup that lets AI read your services, location, hours, and reviews correctly."],
+      ["Answer-ready content", "Pages written to directly answer the real questions your customers ask — the format AI engines pull from."],
+      ["Citations &amp; consistency", "Consistent name, address, and details across the third-party sources AI cross-checks."],
+      ["Reputation signals", "The reviews and mentions that build the trust AI models weigh when they recommend a business."],
+      ["AI visibility monitoring", "We check how your business appears across ChatGPT, Gemini, Perplexity &amp; Google AI Overviews, and keep refining."],
+    ],
+    approach: ["Search is shifting from a page of links to a single AI answer — we get you ready for both.", "We optimize the signals AI engines actually read: entities, structure, content, and reputation.", "AEO builds on the same fundamentals as your SEO — think of it as a new front door to the same house."],
+    related: ["seo", "websites", "automation"],
   },
   advertising: {
     label: "Google Ads & Paid Media", eyebrow: "Advertising & paid media",
@@ -831,7 +848,7 @@ pages.forEach(p => { fs.writeFileSync(path.join(OUT, p.file), p.html); n++; cons
 
 /* ---------- sitemap.xml + robots.txt ---------- */
 const indexable = [
-  "index.html", "services.html", "websites.html", "seo.html", "advertising.html",
+  "index.html", "services.html", "websites.html", "seo.html", "aeo.html", "advertising.html",
   "social-content.html", "automation.html", "about.html", "work.html", "industries.html",
   "process.html", "faq.html", "contact.html", "book.html", "seo-audit.html", "blog.html", "locations.html",
   "industries.html",
