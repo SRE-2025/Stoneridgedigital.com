@@ -181,8 +181,8 @@
         <h3 class="h-md" style="font-size:1.6rem;margin-bottom:10px;">Want us to fix every one of these for you?</h3>
         <p style="color:rgba(244,237,219,0.85);max-width:52ch;margin:0 auto 22px;">This is just the surface. Book a call and we'll walk through what these results mean for your business — and how we'd approach them.</p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-          <a href="index.html#book" class="btn btn-copper btn-lg" data-hover>Book a strategy call</a>
-          <a href="index.html#contact" class="btn btn-ghost on-dark btn-lg" data-hover>Get in touch</a>
+          <a href="/#book" class="btn btn-copper btn-lg" data-hover>Book a strategy call</a>
+          <a href="/#contact" class="btn btn-ghost on-dark btn-lg" data-hover>Get in touch</a>
         </div>
         <p class="emailed-note" id="emailNote">${meta.emailed
           ? `✓ A full copy of this report is on its way to <b>${meta.email}</b>.`
@@ -268,7 +268,7 @@ LEAD
       clearInterval(scanTimer);
       show("form");
       err.innerHTML = "We couldn't auto-scan that URL right now (" + (ex.message || "network error") +
-        "). Double-check the domain, or <a href='index.html#contact' style='color:var(--copper-bright);text-decoration:underline;'>request a manual audit</a> and we'll email it to you.";
+        "). Double-check the domain, or <a href='/#contact' style='color:var(--copper-bright);text-decoration:underline;'>request a manual audit</a> and we'll email it to you.";
       err.style.display = "block";
       // fire the lead anyway so admin@ still hears about it
       emailReport({ url, scores: {}, overall: 0, findings: [], perfMetrics: {} }, lead).catch(() => {});

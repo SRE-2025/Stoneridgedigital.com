@@ -25,7 +25,7 @@ const SVCLINKS = [
   ["automation", "Automation &amp; AI", "Reviews, booking, systems"],
 ];
 
-const brand = (href = "index.html") => `<a href="${href}" class="brand">
+const brand = (href = "/") => `<a href="${href}" class="brand">
   <img class="brand-full" src="assets/logo.png" alt="Stoneridge Digital" onload="this.closest('.brand').classList.add('has-logo')" onerror="this.remove()">
   <img class="mark-img" src="assets/mark.png" alt="">
   <span class="word"><span class="a">STONERIDGE</span><span class="b">DIGITAL</span></span></a>`;
@@ -763,7 +763,7 @@ pages.push({
     <img class="mark-float" src="assets/mark.png" alt="" width="56" style="margin:0 auto 18px;">
     <h1 class="h-lg" style="margin-bottom:14px;">This trail went cold.</h1>
     <p class="lead" style="margin:0 auto 28px;">The page you're after doesn't exist — but the good stuff is a click away.</p>
-    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="index.html" class="btn btn-primary btn-lg" data-hover>Back home ${arrow}</a><a href="services.html" class="btn btn-ghost btn-lg" data-hover>See services</a></div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;"><a href="/" class="btn btn-primary btn-lg" data-hover>Back home ${arrow}</a><a href="services.html" class="btn btn-ghost btn-lg" data-hover>See services</a></div>
   </div></div>
 </header>`,
   }),
