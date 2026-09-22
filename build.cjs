@@ -20,7 +20,7 @@ const SVCLINKS = [
   ["websites", "Website Design", "Custom sites that convert"],
   ["seo", "SEO", "Local &amp; advanced search"],
   ["aeo", "AEO", "Get found in AI answers"],
-  ["advertising", "Advertising", "Google &amp; paid media"],
+  ["advertising", "Advertising", "Meta, Google &amp; AI ads"],
   ["social-content", "Social &amp; Content", "Filmed, edited, posted"],
   ["automation", "Automation &amp; AI", "Reviews, booking, systems"],
 ];
@@ -110,7 +110,7 @@ const pageHero = ({ crumb, eyebrow, title, lead, actions = true, center = false 
     <div class="trust-strip reveal in" data-delay="3">
       <span class="ts">${check} Full-service</span>
       <span class="ts">${check} You own your site &amp; data</span>
-      <span class="ts">${check} DFW &amp; nationwide</span>
+      <span class="ts">${check} Austin &amp; nationwide</span>
     </div>` : ""}
   </div>
 </header>`;
@@ -120,7 +120,7 @@ const OGIMG = `${DOMAIN}/assets/og-image.png`;
 const V = Date.now(); // cache-bust CSS/JS on every build
 const jsonld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
 const baseSchema = [
-  { "@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], name: "Stoneridge Digital", url: DOMAIN, telephone: "+1-972-313-5141", email: "admin@stoneridgedigital.com", image: `${DOMAIN}/assets/mark.png`, logo: `${DOMAIN}/assets/mark.png`, description: "Full-service marketing agency for local businesses — custom websites, SEO, paid ads, social media & automation.", areaServed: "United States", address: { "@type": "PostalAddress", addressRegion: "TX", addressLocality: "Dallas–Fort Worth", addressCountry: "US" }, priceRange: "$$" },
+  { "@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], name: "Stoneridge Digital", url: DOMAIN, telephone: "+1-972-313-5141", email: "admin@stoneridgedigital.com", image: `${DOMAIN}/assets/mark.png`, logo: `${DOMAIN}/assets/mark.png`, description: "Full-service marketing agency for local businesses — custom websites, SEO, paid ads, social media & automation.", areaServed: "United States", address: { "@type": "PostalAddress", addressRegion: "TX", addressLocality: "Austin", addressCountry: "US" }, priceRange: "$$" },
   { "@context": "https://schema.org", "@type": "WebSite", name: "Stoneridge Digital", url: DOMAIN },
 ];
 const layout = ({ title, desc, content, noindex = false, path = "index.html", ogType = "website", schema = [] }) => {
@@ -223,19 +223,19 @@ const SERVICES = {
     related: ["seo", "websites", "automation"],
   },
   advertising: {
-    label: "Google Ads & Paid Media", eyebrow: "Advertising & paid media",
+    label: "Meta, Google &amp; AI Ads", eyebrow: "Advertising & paid media",
     title: "Smart ads across<br>every platform.",
-    lead: "Managed, optimized advertising across Google and social — with premium targeting and retargeting, all handled for you.",
+    lead: "Managed, optimized advertising across Meta, Google, and new AI-driven ad platforms — with premium targeting and retargeting, all handled for you.",
     includes: [
-      ["Full ad management", "Campaigns built, launched, and optimized across platforms."],
-      ["Smart targeting", "Reach the right people with premium audience data."],
-      ["Retargeting", "Stay in front of site visitors and past ad-viewers."],
-      ["Creative & copy", "Ad creative and messaging that fits your brand."],
-      ["Budget management", "Spend managed and adjusted toward what's working."],
-      ["Transparent reporting", "Clear monthly reporting on every dollar."],
+      ["Google Ads", "Search, Maps, YouTube &amp; Display campaigns built and optimized to bring in booked jobs."],
+      ["Meta Ads", "Facebook &amp; Instagram campaigns that put you in front of the right local audience."],
+      ["AI-driven ads", "Emerging AI ad platforms and tools that find and target buyers automatically — we keep you on the cutting edge."],
+      ["Smart targeting &amp; retargeting", "Reach the right people, then stay in front of site visitors and past ad-viewers."],
+      ["Creative &amp; copy", "Ad creative and messaging that fits your brand."],
+      ["Budget &amp; reporting", "Spend managed toward what works, with clear monthly reporting on every dollar."],
     ],
-    approach: ["We test, learn, and shift budget toward what performs.", "Ads work best paired with a site built to convert — we handle both.", "No mystery spend: you see where the money goes."],
-    related: ["websites", "seo", "automation"],
+    approach: ["We test, learn, and shift budget toward what performs across Meta, Google and AI platforms.", "Ads work best paired with a site built to convert — we handle both.", "No mystery spend: you see where the money goes."],
+    related: ["websites", "seo", "aeo"],
   },
   "social-content": {
     label: "Social Media & Content", eyebrow: "Social media & content",
@@ -353,12 +353,13 @@ ${ctaBand()}`,
 
 // Work — honest capabilities showcase (no invented client case studies)
 const workCaps = [
-  [`<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 15h6"/>`, "Custom Websites", "Fast, custom-built sites engineered to convert visitors into booked business — never a template."],
-  [`<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`, "Local SEO", "On-page, technical &amp; local citations so you show up when nearby customers are searching."],
-  [`<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/>`, "Google &amp; Paid Ads", "Targeted campaigns managed and optimized so every dollar is working toward booked jobs."],
-  [`<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>`, "Social &amp; Content", "Real content — filmed, edited &amp; posted across the platforms your customers actually use."],
-  [`<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`, "Automation &amp; AI", "Missed-call text-back, review requests &amp; after-hours booking so no lead ever slips away."],
-  [`<path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/>`, "Analytics &amp; Reporting", "Live dashboards and clear monthly reports — you always know exactly what's working."],
+  ["websites", `<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 8h18M7 15h6"/>`, "Custom Websites", "Fast, custom-built sites engineered to convert visitors into booked business — never a template."],
+  ["seo", `<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>`, "Local SEO", "On-page, technical &amp; local citations so you show up when nearby customers are searching."],
+  ["aeo", `<path d="M12 3l1.7 4.6L18.5 9l-4.8 1.4L12 15l-1.7-4.6L5.5 9l4.8-1.4z"/><path d="M18.5 14l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/>`, "Answer Engine Optimization", "Get surfaced when customers ask ChatGPT, Gemini &amp; Google's AI for a recommendation."],
+  ["advertising", `<path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="7"/><rect x="12" y="7" width="3" height="11"/><rect x="17" y="13" width="3" height="5"/>`, "Meta, Google &amp; AI Ads", "Facebook, Instagram, Google &amp; AI-driven ad campaigns, managed and optimized toward booked jobs."],
+  [`social-content`, `<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>`, "Social &amp; Content", "Real content — filmed, edited &amp; posted across the platforms your customers actually use."],
+  ["automation", `<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>`, "Automation &amp; AI", "Missed-call text-back, review requests &amp; after-hours booking so no lead ever slips away."],
+  ["automation", `<path d="M3 3v18h18"/><path d="M7 14l3-3 3 2 5-6"/>`, "Analytics &amp; Reporting", "Live dashboards and clear monthly reports — you always know exactly what's working."],
 ];
 pages.push({
   file: "work.html",
@@ -370,7 +371,7 @@ pages.push({
 <section><div class="wrap">
   <div class="sec-head center reveal"><p class="eyebrow">Capabilities</p><h2 class="h-lg">Everything under one roof.</h2></div>
   <div class="inc-grid">
-  ${workCaps.map(([icon, t, d], i) => `<div class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${icon}</svg></div><h3>${t}</h3><p>${d}</p></div>`).join("\n  ")}
+  ${workCaps.map(([href, icon, t, d], i) => `<a href="${href}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${icon}</svg></div><h3>${t}</h3><p>${d} — explore ${arrow}</p></a>`).join("\n  ")}
   </div>
 </div></section>
 <section class="band-alt"><div class="wrap">
@@ -409,7 +410,7 @@ const faqs = [
   ["How do agreements work?", "We keep it simple and transparent. On our first call we'll walk through exactly what's included and the terms that fit your goals — no jargon, no surprises."],
   ["Is my website really custom, or a template?", "Every site is custom-built for your business and market. Never a template — that's the whole point."],
   ["What kind of timeline should I expect?", "Every business and market is different, so we won't hand you a one-size-fits-all promise. On our first call we'll walk through realistic expectations, then report progress transparently every month."],
-  ["Do you work with businesses outside DFW?", "Absolutely. We're based in DFW but serve local businesses nationwide — the playbook travels."],
+  ["Do you work with businesses outside Austin?", "Absolutely. We're based in Austin but serve local businesses across Texas and nationwide — the playbook travels."],
   ["Can I pick just one service?", "Yes. Start with what you need most — many clients begin with a website or SEO and grow from there."],
   ["Who will I actually be working with?", "One dedicated point of contact, backed by our full team. No being passed around."],
   ["How do you report on the work?", "Clear monthly reporting plus live dashboards, so you always know what's happening and why."],
@@ -442,7 +443,7 @@ pages.push({
   <div class="contact-info reveal" data-anim="left">
     <div class="line"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3-8.6A2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8.1 9.9a16 16 0 006 6l1.5-1.2a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg></span><span><small>Call us</small><b><a href="tel:9723135141">972-313-5141</a></b></span></div>
     <div class="line"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span><small>Email us</small><b><a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a></b></span></div>
-    <div class="line"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.4-7-11a7 7 0 0114 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span><span><small>Serving</small><b>DFW &amp; local markets nationwide</b></span></div>
+    <div class="line"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7-6.4-7-11a7 7 0 0114 0c0 4.6-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg></span><span><small>Serving</small><b>Austin &amp; local markets nationwide</b></span></div>
     <div class="line" style="border-bottom:0;"><span class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18z"/><circle cx="11" cy="11" r="2"/></svg></span><span><small>Prefer a time?</small><b><a href="book.html">Book a call →</a></b></span></div>
   </div>
   <form class="form-card reveal" data-anim="right" id="contactForm">
@@ -770,24 +771,24 @@ pages.push({
 
 /* ---------- Service-area (city) pages — genuinely localized ---------- */
 const LOCATIONS = [
-  { city: "Austin", angle: "Austin is one of the most competitive markets in the country — tech, startups, and thousands of local businesses all fighting for attention. Standing out here takes a website and a local-SEO strategy built to win.", areas: "Downtown, South Congress (SoCo), East Austin, The Domain, Zilker, Mueller, Westlake and Round Rock", landmark: "from South Congress to The Domain" },
-  { city: "Round Rock", angle: "Round Rock's fast growth just north of Austin makes it a prime market — if local customers can actually find you.", areas: "Downtown Round Rock, La Frontera, Teravista and the Dell area", landmark: "from Old Settlers Park to La Frontera" },
-  { city: "Cedar Park", angle: "Cedar Park's booming family community rewards businesses with a sharp, trustworthy local presence.", areas: "Buttercup Creek, the Bell District, Twin Creeks and the 1890 Ranch area", landmark: "around the Bell District and 1890 Ranch" },
-  { city: "Georgetown", angle: "Georgetown blends historic charm with rapid growth — a great place to build a loyal local following online.", areas: "the historic Downtown Square, Sun City, Wolf Ranch and Berry Creek", landmark: "around the Georgetown Square" },
-  { city: "Dallas", angle: "Dallas is a big, competitive market — standing out takes a site and a strategy built to cut through the noise.", areas: "Uptown, Deep Ellum, Bishop Arts, Oak Cliff, Lakewood and Preston Hollow", landmark: "from the Arts District to the Bishop Arts shops" },
-  { city: "Fort Worth", angle: "Fort Worth blends deep roots with fast growth. We help local businesses look modern without losing that hometown feel.", areas: "Sundance Square, West 7th, the Near Southside, the TCU area and the Stockyards", landmark: "from Sundance Square to the Stockyards" },
-  { city: "Plano", angle: "Plano is affluent and crowded with corporate neighbors. Local businesses here win on trust, reviews and a polished presence.", areas: "Legacy West, Downtown Plano, Willow Bend and West Plano", landmark: "from Legacy West to historic Downtown Plano" },
-  { city: "Frisco", angle: "Frisco is booming with young families and new development — a market where showing up first genuinely matters.", areas: "The Star, Frisco Square, Stonebriar and Preston Road", landmark: "from The Star to Stonebriar Centre" },
-  { city: "McKinney", angle: "McKinney's charm and rapid growth make it a great place to build a loyal local following — if people can find you.", areas: "Historic Downtown, Adriatica, Craig Ranch and Stonebridge Ranch", landmark: "from the historic square to Adriatica Village" },
-  { city: "Arlington", angle: "Arlington sits at the heart of the Mid-Cities and draws huge crowds — we help local businesses turn that traffic into customers.", areas: "the Entertainment District, downtown, the UTA area and Dalworthington Gardens", landmark: "near AT&T Stadium and Globe Life Field" },
-  { city: "Irving", angle: "Irving's Las Colinas corridor is dense with business. Local shops and practices here need a sharp, findable presence to compete.", areas: "Las Colinas, the Toyota Music Factory area, Valley Ranch and downtown Irving", landmark: "from Las Colinas to the Music Factory" },
-  { city: "Denton", angle: "Denton's creative, college-town energy rewards businesses that show real personality online — exactly what we build.", areas: "the Downtown Square, the UNT and TWU areas, and Rayzor Ranch", landmark: "around the Downtown Denton Square" },
+  { city: "Austin", metro: "Greater Austin area", angle: "Austin is one of the most competitive markets in the country — tech, startups, and thousands of local businesses all fighting for attention. Standing out here takes a website and a local-SEO strategy built to win.", areas: "Downtown, South Congress (SoCo), East Austin, The Domain, Zilker, Mueller and Westlake", landmark: "from South Congress to The Domain" },
+  { city: "Round Rock", metro: "Greater Austin area", angle: "Round Rock's fast growth just north of Austin makes it a prime market — if local customers can actually find you.", areas: "Downtown Round Rock, La Frontera, Teravista and the Dell area", landmark: "from Old Settlers Park to La Frontera" },
+  { city: "Cedar Park", metro: "Greater Austin area", angle: "Cedar Park's booming family community rewards businesses with a sharp, trustworthy local presence.", areas: "Buttercup Creek, the Bell District, Twin Creeks and the 1890 Ranch area", landmark: "around the Bell District and 1890 Ranch" },
+  { city: "Georgetown", metro: "Greater Austin area", angle: "Georgetown blends historic charm with rapid growth — a great place to build a loyal local following online.", areas: "the historic Downtown Square, Sun City, Wolf Ranch and Berry Creek", landmark: "around the Georgetown Square" },
+  { city: "Dallas", metro: "DFW metro", angle: "Dallas is a big, competitive market — standing out takes a site and a strategy built to cut through the noise.", areas: "Uptown, Deep Ellum, Bishop Arts, Oak Cliff, Lakewood and Preston Hollow", landmark: "from the Arts District to the Bishop Arts shops" },
+  { city: "Fort Worth", metro: "DFW metro", angle: "Fort Worth blends deep roots with fast growth. We help local businesses look modern without losing that hometown feel.", areas: "Sundance Square, West 7th, the Near Southside, the TCU area and the Stockyards", landmark: "from Sundance Square to the Stockyards" },
+  { city: "Plano", metro: "DFW metro", angle: "Plano is affluent and crowded with corporate neighbors. Local businesses here win on trust, reviews and a polished presence.", areas: "Legacy West, Downtown Plano, Willow Bend and West Plano", landmark: "from Legacy West to historic Downtown Plano" },
+  { city: "Frisco", metro: "DFW metro", angle: "Frisco is booming with young families and new development — a market where showing up first genuinely matters.", areas: "The Star, Frisco Square, Stonebriar and Preston Road", landmark: "from The Star to Stonebriar Centre" },
+  { city: "McKinney", metro: "DFW metro", angle: "McKinney's charm and rapid growth make it a great place to build a loyal local following — if people can find you.", areas: "Historic Downtown, Adriatica, Craig Ranch and Stonebridge Ranch", landmark: "from the historic square to Adriatica Village" },
+  { city: "Arlington", metro: "DFW metro", angle: "Arlington sits at the heart of the Mid-Cities and draws huge crowds — we help local businesses turn that traffic into customers.", areas: "the Entertainment District, downtown, the UTA area and Dalworthington Gardens", landmark: "near AT&T Stadium and Globe Life Field" },
+  { city: "Irving", metro: "DFW metro", angle: "Irving's Las Colinas corridor is dense with business. Local shops and practices here need a sharp, findable presence to compete.", areas: "Las Colinas, the Toyota Music Factory area, Valley Ranch and downtown Irving", landmark: "from Las Colinas to the Music Factory" },
+  { city: "Denton", metro: "DFW metro", angle: "Denton's creative, college-town energy rewards businesses that show real personality online — exactly what we build.", areas: "the Downtown Square, the UNT and TWU areas, and Rayzor Ranch", landmark: "around the Downtown Denton Square" },
 ];
 const cityPage = (loc) => {
   const c = loc.city;
   const slug = `marketing-${c.toLowerCase().replace(/[^a-z]/g, "-")}`;
   const localFaqs = [
-    [`Do you work with businesses in ${c}?`, `Yes — we work with local businesses across ${c} and the surrounding DFW metro (${loc.areas}). Everything we build is tailored to your specific market, not a template.`],
+    [`Do you work with businesses in ${c}?`, `Yes — we work with local businesses across ${c} and the surrounding ${loc.metro} (${loc.areas}). Everything we build is tailored to your specific market, not a template.`],
     [`How do you help ${c} businesses get found locally?`, `We combine a fast, custom website with local SEO — optimizing your Google Business Profile, building consistent local citations, and creating content aimed at the searches ${c} customers actually make.`],
     [`Do we have to meet in person?`, `We're happy to meet locally ${loc.landmark}, but most of our work happens over calls and email — so we serve ${c} businesses just as easily whether you're around the corner or across the metro.`],
   ];
