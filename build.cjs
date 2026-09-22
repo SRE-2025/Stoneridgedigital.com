@@ -280,7 +280,7 @@ const servicePage = (slug) => {
 <section><div class="wrap">
   <div class="sec-head reveal"><p class="eyebrow">What's included</p><h2 class="h-lg">Everything you get.</h2></div>
   <div class="inc-grid">
-    ${s.includes.map(([t, d], i) => `<div class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(svcIcon[slug])}</div><h3>${t}</h3><p>${d}</p></div>`).join("\n    ")}
+    ${s.includes.map(([t, d], i) => `<div class="inc inc-static reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(svcIcon[slug])}</div><h3>${t}</h3><p>${d}</p></div>`).join("\n    ")}
   </div>
 </div></section>
 <section class="band-alt"><div class="wrap"><div class="two-col">
@@ -313,8 +313,8 @@ pages.push({
     content: `${pageHero({ center: true, eyebrow: "What we do", title: "One partner for<br>your whole funnel.", lead: "From the first click to the booked call, we own the entire journey — and report on every step. Pick a focus, or let us run it all." })}
 <section><div class="wrap">
   <div class="inc-grid">
-    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d} — explore ${arrow}</p></a>`).join("\n    ")}
-    <div class="inc reveal" data-delay="2" style="background:var(--forest);color:var(--cream);border-color:var(--forest);"><div class="ic" style="background:rgba(244,237,219,0.12);color:#e0a86c;">${genIcon('<path d="M12 3v18M3 12h18"/>')}</div><h3 style="color:var(--cream);">All of it, together</h3><p style="color:rgba(244,237,219,0.8);">Most clients let us run the whole engine. <a href="book.html" style="color:#e0a86c;">Book a call ${arrow}</a></p></div>
+    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc inc-link reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d}</p><span class="inc-cta">Explore service ${arrow}</span></a>`).join("\n    ")}
+    <a href="book.html" class="inc inc-link inc-featured reveal" data-delay="2"><div class="ic">${genIcon('<path d="M12 3v18M3 12h18"/>')}</div><h3>All of it, together</h3><p>Bring the whole marketing engine under one accountable partner.</p><span class="inc-cta">Book a call ${arrow}</span></a>
   </div>
 </div></section>
 ${ctaBand("Not sure where to start?", "Tell us about your business and we'll point you to the right first move.")}`,
@@ -371,7 +371,7 @@ pages.push({
 <section><div class="wrap">
   <div class="sec-head center reveal"><p class="eyebrow">Capabilities</p><h2 class="h-lg">Everything under one roof.</h2></div>
   <div class="inc-grid">
-  ${workCaps.map(([href, icon, t, d], i) => `<a href="${href}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${icon}</svg></div><h3>${t}</h3><p>${d} — explore ${arrow}</p></a>`).join("\n  ")}
+  ${workCaps.map(([href, icon, t, d], i) => `<a href="${href}.html" class="inc inc-link reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${icon}</svg></div><h3>${t}</h3><p>${d}</p><span class="inc-cta">Explore capability ${arrow}</span></a>`).join("\n  ")}
   </div>
 </div></section>
 <section class="band-alt"><div class="wrap">
@@ -659,13 +659,13 @@ const industryPage = (ind) => {
 <section><div class="wrap">
   <div class="sec-head reveal"><p class="eyebrow">What we solve</p><h2 class="h-lg">The challenges we<br>help with.</h2></div>
   <div class="inc-grid">
-    ${ind.pains.map(([t, d], i) => `<div class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(`<path d="${ind.icon}"/>`)}</div><h3>${t}</h3><p>${d}</p></div>`).join("\n    ")}
+    ${ind.pains.map(([t, d], i) => `<div class="inc inc-static reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(`<path d="${ind.icon}"/>`)}</div><h3>${t}</h3><p>${d}</p></div>`).join("\n    ")}
   </div>
 </div></section>
 <section class="band-alt"><div class="wrap">
   <div class="sec-head center reveal"><p class="eyebrow">What we do</p><h2 class="h-lg">Everything your ${ind.noun}<br>need, under one roof.</h2></div>
   <div class="inc-grid">
-    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d} — explore ${arrow}</p></a>`).join("\n    ")}
+    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc inc-link reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d}</p><span class="inc-cta">Explore service ${arrow}</span></a>`).join("\n    ")}
   </div>
 </div></section>
 <section><div class="wrap">
@@ -692,7 +692,7 @@ pages.push({
     desc: "Stoneridge Digital works with local service businesses — dental, medical, legal, home services, fitness, and med spas.",
     content: `${pageHero({ center: true, eyebrow: "Who we serve", title: "Built for local<br>service businesses.", lead: "We specialize in the businesses that live and die by their local reputation. If your customers are nearby and your calendar matters, we speak your language." })}
 <section><div class="wrap"><div class="inc-grid">
-  ${INDUSTRY_PAGES.map((ind, i) => `<a href="${ind.slug}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic">${genIcon(`<path d="${ind.icon}"/>`)}</div><h3>${ind.name}</h3><p>${ind.card} — explore ${arrow}</p></a>`).join("\n  ")}
+  ${INDUSTRY_PAGES.map((ind, i) => `<a href="${ind.slug}.html" class="inc inc-link reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(`<path d="${ind.icon}"/>`)}</div><h3>${ind.name}</h3><p>${ind.card}</p><span class="inc-cta">Explore industry ${arrow}</span></a>`).join("\n  ")}
 </div>
 <p class="price-note" style="margin-top:34px;">Don't see your industry? We work with plenty of others — <a href="book.html">let's talk</a>.</p>
 </div></section>
@@ -806,7 +806,7 @@ const cityPage = (loc) => {
 <section class="band-alt"><div class="wrap">
   <div class="sec-head center reveal"><p class="eyebrow">What we do</p><h2 class="h-lg">Everything ${c} needs,<br>under one roof.</h2></div>
   <div class="inc-grid">
-    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}" style="text-decoration:none;display:block;"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d} — explore ${arrow}</p></a>`).join("\n    ")}
+    ${SVCLINKS.map(([s, l, d], i) => `<a href="${s}.html" class="inc inc-link reveal" data-anim="${i % 3 === 0 ? "left" : i % 3 === 2 ? "right" : ""}" data-delay="${i % 3}"><div class="ic">${genIcon(svcIcon[s])}</div><h3>${l}</h3><p>${d}</p><span class="inc-cta">Explore service ${arrow}</span></a>`).join("\n    ")}
   </div>
 </div></section>
 <section><div class="wrap">

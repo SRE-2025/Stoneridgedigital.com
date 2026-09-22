@@ -1,2 +1,4 @@
 node_modules/
 .DS_Store
+.qa-browser*/
+card-grid-*.png
