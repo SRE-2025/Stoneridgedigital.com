@@ -1,4 +1,5 @@
 node_modules/
 .DS_Store
 .qa-browser*/
+.qa-lighthouse*.json
 card-grid-*.png

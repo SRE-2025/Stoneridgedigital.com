@@ -10,7 +10,8 @@ const path = require("path");
 const OUT = __dirname;
 
 /* ---------- shared bits ---------- */
-const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">`;
+const FONT_URL = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap";
+const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="${FONT_URL}" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="${FONT_URL}" rel="stylesheet"></noscript>`;
 const FAVICON = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f4a37'/%3E%3Cpath d='M6 24 L16 9 L26 24 Z' fill='%23f4eddb'/%3E%3Cpath d='M9 24 L16 13 L23 24 Z' fill='%232f4a37'/%3E%3C/svg%3E">`;
 const arrow = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
 const chev = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>`;
@@ -26,8 +27,7 @@ const SVCLINKS = [
 ];
 
 const brand = (href = "/") => `<a href="${href}" class="brand">
-  <img class="brand-full" src="assets/logo.png" alt="Stoneridge Digital" onload="this.closest('.brand').classList.add('has-logo')" onerror="this.remove()">
-  <img class="mark-img" src="assets/mark.png" alt="">
+  <img class="mark-img" src="assets/mark.png" alt="" width="625" height="454">
   <span class="word"><span class="a">STONERIDGE</span><span class="b">DIGITAL</span></span></a>`;
 
 const nav = () => `<nav class="nav" id="nav">
@@ -74,16 +74,14 @@ const footer = () => `<footer class="footer on-dark">
         <div class="footer-invite"><a href="join.html">◆ &nbsp;Grow with the ridge</a></div>
       </div>
       <div class="footer-cols">
-        <div class="col"><h4>Services</h4>${SVCLINKS.map(([s, l]) => `<a href="${s}.html">${l}</a>`).join("")}</div>
-        <div class="col"><h4>Company</h4><a href="about.html">About</a><a href="work.html">Work</a><a href="industries.html">Who We Serve</a><a href="locations.html">Areas We Serve</a><a href="blog.html">Insights</a><a href="process.html">Process</a><a href="faq.html">FAQ</a></div>
-        <div class="col"><h4>Get in touch</h4><a href="book.html">Book a Call</a><a href="seo-audit.html">Free SEO Audit</a><a href="tel:9723135141">972-313-5141</a><a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a></div>
+        <div class="col"><p class="footer-title">Services</p>${SVCLINKS.map(([s, l]) => `<a href="${s}.html">${l}</a>`).join("")}</div>
+        <div class="col"><p class="footer-title">Company</p><a href="about.html">About</a><a href="work.html">Work</a><a href="industries.html">Who We Serve</a><a href="locations.html">Areas We Serve</a><a href="blog.html">Insights</a><a href="process.html">Process</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></div>
+        <div class="col"><p class="footer-title">Get in touch</p><a href="book.html">Book a Call</a><a href="seo-audit.html">Free SEO Audit</a><a href="tel:9723135141">972-313-5141</a><a href="mailto:admin@stoneridgedigital.com">admin@stoneridgedigital.com</a></div>
       </div>
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Stoneridge Digital · <a href="privacy.html" style="color:inherit;">Privacy</a> · <a href="terms.html" style="color:inherit;">Terms</a></span>
       <div class="socials">
-        <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V12H8v3h2.5v7h3v-7H16l.5-3h-3V9.8c0-.5.4-.8 1-.8z"/></svg></a>
-        <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
         <a href="mailto:admin@stoneridgedigital.com" aria-label="Email"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></a>
       </div>
     </div>
@@ -101,7 +99,7 @@ const ctaBand = (title = "Ready when you are.", text = "Book a free call and we'
 const pageHero = ({ crumb, eyebrow, title, lead, actions = true, center = false }) => `<header class="page-hero ${center ? "center" : ""}" id="top">
   ${phMtns()}
   <div class="wrap">
-    <img class="mark-float reveal in" src="assets/mark.png" alt="" width="58">
+    <img class="mark-float reveal in" src="assets/mark.png" alt="" width="58" height="42">
     ${crumb ? `<p class="crumb reveal in">${crumb}</p>` : ""}
     <p class="eyebrow reveal in">${eyebrow}</p>
     <h1 class="h-xl reveal in" style="font-size:clamp(2.5rem,6.5vw,4.6rem);">${title}</h1>
@@ -120,12 +118,17 @@ const OGIMG = `${DOMAIN}/assets/og-image.png`;
 const V = Date.now(); // cache-bust CSS/JS on every build
 const jsonld = (obj) => `<script type="application/ld+json">${JSON.stringify(obj)}</script>`;
 const baseSchema = [
-  { "@context": "https://schema.org", "@type": ["Organization", "LocalBusiness"], name: "Stoneridge Digital", url: DOMAIN, telephone: "+1-972-313-5141", email: "admin@stoneridgedigital.com", image: `${DOMAIN}/assets/mark.png`, logo: `${DOMAIN}/assets/mark.png`, description: "Full-service marketing agency for local businesses — custom websites, SEO, paid ads, social media & automation.", areaServed: "United States", address: { "@type": "PostalAddress", addressRegion: "TX", addressLocality: "Austin", addressCountry: "US" }, priceRange: "$$" },
+  { "@context": "https://schema.org", "@type": "Organization", "@id": `${DOMAIN}/#organization`, name: "Stoneridge Digital", url: DOMAIN, telephone: "+1-972-313-5141", email: "admin@stoneridgedigital.com", image: `${DOMAIN}/assets/og-image.png`, logo: { "@type": "ImageObject", url: `${DOMAIN}/assets/mark.png`, width: 625, height: 454 }, description: "Full-service marketing agency for local businesses — custom websites, SEO, paid ads, social media and automation.", areaServed: "United States" },
   { "@context": "https://schema.org", "@type": "WebSite", name: "Stoneridge Digital", url: DOMAIN },
 ];
 const layout = ({ title, desc, content, noindex = false, path = "index.html", ogType = "website", schema = [] }) => {
   const url = `${DOMAIN}/${path === "index.html" ? "" : path}`;
-  const allSchema = [...baseSchema, ...schema].map(jsonld).join("\n");
+  const webPageSchema = { "@context": "https://schema.org", "@type": "WebPage", "@id": `${url}#webpage`, url, name: title, description: desc, isPartOf: { "@type": "WebSite", url: DOMAIN, name: "Stoneridge Digital" }, about: { "@id": `${DOMAIN}/#organization` } };
+  const breadcrumbSchema = path === "index.html" ? [] : [{ "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: `${DOMAIN}/` },
+    { "@type": "ListItem", position: 2, name: title.replace(/\s+[—|].*$/, ""), item: url },
+  ] }];
+  const allSchema = [...baseSchema, webPageSchema, ...breadcrumbSchema, ...schema].map(jsonld).join("\n");
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -133,18 +136,22 @@ const layout = ({ title, desc, content, noindex = false, path = "index.html", og
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>${title}</title>
 <meta name="description" content="${desc}">
-${noindex ? '<meta name="robots" content="noindex">\n' : `<link rel="canonical" href="${url}">\n`}<meta property="og:type" content="${ogType}">
+${noindex ? '<meta name="robots" content="noindex,follow">\n' : `<meta name="robots" content="index,follow,max-image-preview:large">\n<link rel="canonical" href="${url}">\n`}<meta property="og:type" content="${ogType}">
 <meta property="og:title" content="${title}">
 <meta property="og:description" content="${desc}">
 <meta property="og:url" content="${url}">
 <meta property="og:site_name" content="Stoneridge Digital">
 <meta property="og:image" content="${OGIMG}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Stoneridge Digital — marketing built for local growth">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${desc}">
 <meta name="twitter:image" content="${OGIMG}">
+<meta name="twitter:image:alt" content="Stoneridge Digital — marketing built for local growth">
 ${FONTS}
-<link rel="stylesheet" href="assets/styles.css?v=${V}">
+<link rel="stylesheet" href="assets/styles.min.css?v=${V}">
 <script>document.documentElement.classList.add('js');</script>
 ${FAVICON}
 ${allSchema}
@@ -160,7 +167,7 @@ ${nav()}
 ${content}
 </main>
 ${footer()}
-<script src="assets/app.js?v=${V}"></script>
+<script src="assets/app.min.js?v=${V}"></script>
 </body>
 </html>`;
 };
@@ -179,6 +186,7 @@ const genIcon = (paths) => `<svg width="22" height="22" viewBox="0 0 24 24" fill
 const SERVICES = {
   websites: {
     label: "Website Design & Development", eyebrow: "Website design & development",
+    meta: "Custom website design for local businesses. Fast, mobile-first sites built around clear customer journeys and measurable inquiries.",
     title: "Websites that work<br>as hard as you do.",
     lead: "Custom-built, fast, and made to guide visitors toward booking — never a template. Your website is the foundation everything else runs on.",
     includes: [
@@ -194,6 +202,7 @@ const SERVICES = {
   },
   seo: {
     label: "Local & Advanced SEO", eyebrow: "Search engine optimization",
+    meta: "Local and technical SEO for service businesses, including site structure, on-page optimization, content, and search visibility reporting.",
     title: "Show up where<br>your customers search.",
     lead: "Local and advanced SEO built to make your business easier to find when people are looking for what you do.",
     includes: [
@@ -209,6 +218,7 @@ const SERVICES = {
   },
   aeo: {
     label: "Answer Engine Optimization", eyebrow: "Answer Engine Optimization (AEO)",
+    meta: "Answer engine optimization that helps AI search tools understand your services, expertise, and business information more clearly.",
     title: "Show up when<br>AI does the answering.",
     lead: "More and more customers ask ChatGPT, Gemini, Perplexity, and Google's AI for a recommendation instead of scrolling through search results. AEO is the work of making your business the one those engines understand, trust, and surface.",
     includes: [
@@ -224,6 +234,7 @@ const SERVICES = {
   },
   advertising: {
     label: "Meta, Google &amp; AI Ads", eyebrow: "Advertising & paid media",
+    meta: "Paid media management for Google, Meta, and emerging ad platforms, with clear targeting, landing pages, measurement, and ongoing refinement.",
     title: "Smart ads across<br>every platform.",
     lead: "Managed, optimized advertising across Meta, Google, and new AI-driven ad platforms — with premium targeting and retargeting, all handled for you.",
     includes: [
@@ -239,6 +250,7 @@ const SERVICES = {
   },
   "social-content": {
     label: "Social Media & Content", eyebrow: "Social media & content",
+    meta: "Social media and content support for local businesses, from planning and production to publishing, blogs, and email campaigns.",
     title: "Real content —<br>filmed, edited, posted.",
     lead: "We come to you, capture real content, and run your social accounts — plus blogs and email that keep your audience engaged.",
     includes: [
@@ -254,6 +266,7 @@ const SERVICES = {
   },
   automation: {
     label: "Automation & AI", eyebrow: "Automation, reviews & AI",
+    meta: "Practical marketing automation for reviews, missed calls, lead follow-up, scheduling, reporting, and after-hours customer communication.",
     title: "Systems that catch<br>every opportunity.",
     lead: "Reviews, missed-call text-back, an after-hours AI receptionist, and reporting — the systems that make sure nothing slips through.",
     includes: [
@@ -297,7 +310,7 @@ const servicePage = (slug) => {
 ${relatedBlock(s.related)}
 ${ctaBand()}`;
   const schema = [{ "@context": "https://schema.org", "@type": "Service", serviceType: s.label, name: s.label, description: s.lead.replace(/<[^>]+>/g, ""), provider: { "@type": "Organization", name: "Stoneridge Digital", url: DOMAIN }, areaServed: "United States" }];
-  return { file: `${slug}.html`, html: layout({ title: `${s.label} — Stoneridge Digital`, desc: s.lead.replace(/<[^>]+>/g, ""), content, path: `${slug}.html`, schema }) };
+  return { file: `${slug}.html`, html: layout({ title: `${s.label} — Stoneridge Digital`, desc: s.meta, content, path: `${slug}.html`, schema }) };
 };
 
 /* ---------- standalone pages ---------- */
@@ -530,7 +543,7 @@ const ARTICLES = [
     excerpt: "Before you chase rankings, get these fundamentals right — they do most of the heavy lifting.",
     body: `<p class="lead">Local SEO isn't magic, and it isn't a secret. Most of the wins come from doing a handful of unglamorous things properly and consistently. Here's where to start.</p>
 <h2>Claim and complete your Google Business Profile</h2>
-<p>Your Google Business Profile is the single most important local asset you have. Claim it, verify it, and fill in <strong>every</strong> field — hours, services, service areas, photos, and a real description of what you do.</p>
+<p>Your Google Business Profile is one of the most important local assets you have. Claim it, verify it, and fill in <strong>every</strong> relevant field — hours, services, service areas, photos, and a real description of what you do. Our <a href="seo.html">local SEO service</a> connects that profile work with the pages and technical signals on your site.</p>
 <ul><li>Add real photos of your team and space, not stock images.</li><li>Keep your hours accurate, especially around holidays.</li><li>Post updates occasionally — it signals an active business.</li></ul>
 <h2>Keep your name, address & phone consistent everywhere</h2>
 <p>Search engines cross-check your business details across the web. If your address is formatted three different ways across five directories, that inconsistency works against you. Pick one format and use it everywhere.</p>
@@ -538,7 +551,7 @@ const ARTICLES = [
 <h2>Earn reviews the right way</h2>
 <p>Reviews influence both rankings and the humans reading them. Ask happy customers at the right moment, make it easy with a direct link, and always respond — to the good and the not-so-good.</p>
 <h2>Build pages for what you actually do</h2>
-<p>If you offer five services, one catch-all page won't cut it. Give each meaningful service its own page with genuinely useful content. It helps search engines understand you, and it helps customers find exactly what they need.</p>
+<p>If you offer five services, one catch-all page won't cut it. Give each meaningful service its own page with genuinely useful content. It helps search engines understand you, and it helps customers find exactly what they need. That structure should be part of the <a href="websites.html">website design</a>, not an afterthought.</p>
 <h2>Be patient — and consistent</h2>
 <p>Local SEO compounds. The work you do this month keeps paying off months from now. The businesses that win are rarely the cleverest — they're the most consistent.</p>`,
   },
@@ -548,7 +561,7 @@ const ARTICLES = [
     excerpt: "A pretty site that doesn't turn visitors into customers is just expensive decoration. Here's what matters.",
     body: `<p class="lead">A website's job isn't to win design awards — it's to help the right person take the next step. These are the fundamentals that make that happen.</p>
 <h2>Speed comes first</h2>
-<p>If your site takes too long to load, a chunk of visitors leave before they see anything. Fast, lightweight pages aren't a nice-to-have — they're the price of entry.</p>
+<p>If your site takes too long to load, a chunk of visitors leave before they see anything. Fast, lightweight pages aren't a nice-to-have — they're the price of entry. Our <a href="websites.html">custom website work</a> starts with that performance foundation.</p>
 <h2>One obvious next step per page</h2>
 <p>Every page should make it painfully clear what to do next: call, book, or get a quote. When you give people five equally-weighted options, many choose none.</p>
 <ul><li>Put your primary action above the fold.</li><li>Repeat it as people scroll — don't make them hunt.</li><li>Use plain language: "Book a call," not "Engage our services."</li></ul>
@@ -558,7 +571,7 @@ const ARTICLES = [
 <h2>Earn trust quickly</h2>
 <p>Real photos, clear contact info, and genuine reviews do more for trust than any amount of polish. People buy from businesses that feel real and reachable.</p>
 <h2>Design for the phone</h2>
-<p>Most local searches happen on mobile. If the experience is anything less than effortless on a phone, you're leaving people behind.</p>`,
+<p>Most local searches happen on mobile. If the experience is anything less than effortless on a phone, you're leaving people behind. A strong mobile experience also supports the usability and technical quality addressed through <a href="seo.html">search optimization</a>.</p>`,
   },
   {
     slug: "insights-content-system", cat: "Social", date: "June 2026", read: "5 min read",
@@ -568,10 +581,10 @@ const ARTICLES = [
 <h2>Batch, don't scramble</h2>
 <p>Trying to create content daily is exhausting and it shows. Instead, set aside one focused session to capture a month's worth at once. One good filming day beats thirty rushed ones.</p>
 <h2>Capture once, use everywhere</h2>
-<p>A single piece of footage can become a reel, a few photos, a blog snippet, and an email. Think in terms of raw material you can repurpose, not one-off posts.</p>
+<p>A single piece of footage can become a reel, a few photos, a blog snippet, and an email. Think in terms of raw material you can repurpose, not one-off posts. A structured <a href="social-content.html">social and content workflow</a> makes that reuse much easier.</p>
 <ul><li>Film a short "how it works" clip → reel + website video.</li><li>Answer a common customer question → post + FAQ + email.</li><li>Show behind the scenes → story + a human touch on your site.</li></ul>
 <h2>Keep a simple calendar</h2>
-<p>You don't need a complex tool. A basic plan of what goes out and when removes the daily "what do I post?" decision — which is usually what kills consistency.</p>
+<p>You don't need a complex tool. A basic plan of what goes out and when removes the daily "what do I post?" decision — which is usually what kills consistency. Add only the <a href="automation.html">automation</a> that supports the process instead of making it harder to manage.</p>
 <div class="callout">The best content system is the one that still runs on your busiest week.</div>
 <h2>Let it sound like you</h2>
 <p>Polished-but-generic content gets ignored. Content that actually sounds and looks like your business builds a real connection — even if it's a little rough around the edges.</p>`,
@@ -596,7 +609,12 @@ const articlePage = (a) => {
 </div></section>
 ${ctaBand("Want this handled for you?", "We build the site, run the SEO, and produce the content — so you can run your business.")}`;
   const schema = [{ "@context": "https://schema.org", "@type": "Article", headline: a.title, description: a.excerpt, datePublished: "2026-07-01", author: { "@type": "Organization", name: "Stoneridge Digital" }, publisher: { "@type": "Organization", name: "Stoneridge Digital", logo: { "@type": "ImageObject", url: `${DOMAIN}/assets/mark.png` } }, image: OGIMG }];
-  return { file: `${a.slug}.html`, html: layout({ title: `${a.title} — Stoneridge Digital`, desc: a.excerpt, content, path: `${a.slug}.html`, ogType: "article", schema }) };
+  const seoTitles = {
+    "insights-local-seo": "Local SEO Basics Most Businesses Miss | Stoneridge",
+    "insights-website-converts": "What Makes a Website Convert | Stoneridge Digital",
+    "insights-content-system": "A Practical Social Content System | Stoneridge Digital",
+  };
+  return { file: `${a.slug}.html`, html: layout({ title: seoTitles[a.slug], desc: a.excerpt, content, path: `${a.slug}.html`, ogType: "article", schema }) };
 };
 ARTICLES.forEach(a => pages.push(articlePage(a)));
 
@@ -769,9 +787,11 @@ pages.push({
   }),
 });
 
-/* ---------- Service-area (city) pages — genuinely localized ---------- */
+/* ---------- Service-area pages ----------
+   Only Austin is indexable until the other markets have original local
+   research, proof, and content. This avoids thin doorway-page patterns. */
 const LOCATIONS = [
-  { city: "Austin", metro: "Greater Austin area", angle: "Austin is one of the most competitive markets in the country — tech, startups, and thousands of local businesses all fighting for attention. Standing out here takes a website and a local-SEO strategy built to win.", areas: "Downtown, South Congress (SoCo), East Austin, The Domain, Zilker, Mueller and Westlake", landmark: "from South Congress to The Domain" },
+  { city: "Austin", indexable: true, metro: "Greater Austin area", angle: "We help businesses serving Austin build a clearer website, stronger local search presence, and a marketing system designed to turn attention into real inquiries.", areas: "Austin and the surrounding metro", landmark: "across the Austin metro" },
   { city: "Round Rock", metro: "Greater Austin area", angle: "Round Rock's fast growth just north of Austin makes it a prime market — if local customers can actually find you.", areas: "Downtown Round Rock, La Frontera, Teravista and the Dell area", landmark: "from Old Settlers Park to La Frontera" },
   { city: "Cedar Park", metro: "Greater Austin area", angle: "Cedar Park's booming family community rewards businesses with a sharp, trustworthy local presence.", areas: "Buttercup Creek, the Bell District, Twin Creeks and the 1890 Ranch area", landmark: "around the Bell District and 1890 Ranch" },
   { city: "Georgetown", metro: "Greater Austin area", angle: "Georgetown blends historic charm with rapid growth — a great place to build a loyal local following online.", areas: "the historic Downtown Square, Sun City, Wolf Ranch and Berry Creek", landmark: "around the Georgetown Square" },
@@ -788,17 +808,17 @@ const cityPage = (loc) => {
   const c = loc.city;
   const slug = `marketing-${c.toLowerCase().replace(/[^a-z]/g, "-")}`;
   const localFaqs = [
-    [`Do you work with businesses in ${c}?`, `Yes — we work with local businesses across ${c} and the surrounding ${loc.metro} (${loc.areas}). Everything we build is tailored to your specific market, not a template.`],
-    [`How do you help ${c} businesses get found locally?`, `We combine a fast, custom website with local SEO — optimizing your Google Business Profile, building consistent local citations, and creating content aimed at the searches ${c} customers actually make.`],
-    [`Do we have to meet in person?`, `We're happy to meet locally ${loc.landmark}, but most of our work happens over calls and email — so we serve ${c} businesses just as easily whether you're around the corner or across the metro.`],
+    [`Do you help businesses that serve ${c}?`, `Yes. We can build and manage marketing for businesses whose customers are in ${c} and the surrounding ${loc.metro}. The work is delivered remotely and tailored to the services, customers, and competition you actually face.`],
+    [`How can you help a ${c} business get found locally?`, `Depending on the business, that can include a fast website, on-page and technical SEO, Google Business Profile guidance, consistent business information, and useful content built around genuine customer questions.`],
+    [`Do we have to meet in person?`, `No. Strategy, reviews, approvals, and reporting can all be handled by call and email, so we can support a business serving ${c} without implying that we maintain an office there.`],
   ];
   const content = `${pageHero({ crumb: `<a href="locations.html">Locations</a> / ${c}`, eyebrow: `${c} marketing company`, title: `The marketing company<br>built for ${c} businesses.`, lead: loc.angle })}
 <section><div class="wrap"><div class="two-col">
   <div class="reveal" data-anim="left">
-    <p class="eyebrow">Local, done right</p>
-    <h2 class="h-lg" style="margin-bottom:20px;">We know the<br>${c} market.</h2>
-    <p class="lead" style="margin-bottom:16px;">From ${loc.areas}, ${c} businesses compete for attention every day. We build the website, the local SEO, and the content that helps the right customers nearby find you first.</p>
-    <p style="color:var(--sage);">One local partner for your website, search, ads, social and automation — all tailored to ${c}.</p>
+    <p class="eyebrow">Built around your market</p>
+    <h2 class="h-lg" style="margin-bottom:20px;">Marketing for businesses<br>serving ${c}.</h2>
+    <p class="lead" style="margin-bottom:16px;">We start with what your customers search for, what they need to trust, and how they prefer to contact you. Then we connect your website, search visibility, advertising, content, and follow-up around that path.</p>
+    <p style="color:var(--sage);">Stoneridge Digital serves clients remotely. This page describes markets we can support; it does not represent a physical office in ${c}.</p>
     <a href="book.html" class="btn btn-primary btn-lg" style="margin-top:26px;" data-hover>Book a call ${arrow}</a>
   </div>
   <div class="panel-img reveal" data-anim="right"><div class="topo">${topo(0.4)}</div><img class="pmark" src="assets/mark.png" alt="" loading="lazy"></div>
@@ -820,7 +840,8 @@ ${ctaBand(`Grow your ${c} business.`, `Book a free call and we'll map the fastes
     { "@context": "https://schema.org", "@type": "Service", serviceType: "Digital marketing", name: `Digital marketing in ${c}, TX`, areaServed: { "@type": "City", name: `${c}, Texas` }, provider: { "@type": "Organization", name: "Stoneridge Digital", url: DOMAIN } },
     { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: localFaqs.map(f => ({ "@type": "Question", name: f[0], acceptedAnswer: { "@type": "Answer", text: f[1] } })) },
   ];
-  return { file: `${slug}.html`, html: layout({ path: `${slug}.html`, title: `${c} Marketing Company | Web, SEO & Ads — Stoneridge Digital`, desc: `Looking for a marketing company in ${c}, TX? Stoneridge Digital builds custom websites and runs local SEO, Google Ads, social & automation for ${c} businesses. Book a free call.`, content, schema }) };
+  const pageTitle = c === "Austin" ? "Digital Marketing for Austin Businesses | Stoneridge" : `${c} Digital Marketing Agency | Stoneridge Digital`;
+  return { file: `${slug}.html`, indexable: Boolean(loc.indexable), html: layout({ noindex: !loc.indexable, path: `${slug}.html`, title: pageTitle, desc: `Web design, SEO, paid media, content and automation for businesses serving ${c}, Texas. See how Stoneridge Digital can support your growth.`, content, schema }) };
 };
 const cityPages = LOCATIONS.map(cityPage);
 cityPages.forEach(p => pages.push(p));
@@ -831,12 +852,12 @@ pages.push({
   html: layout({
     path: "locations.html",
     title: "Areas We Serve — Stoneridge Digital",
-    desc: "Stoneridge Digital serves local businesses across Texas — Austin, Round Rock, Cedar Park, Georgetown, Dallas, Fort Worth, Plano, Frisco & more.",
-    content: `${pageHero({ center: true, eyebrow: "Areas we serve", title: "Local marketing<br>across Texas.", lead: "From Austin to Dallas–Fort Worth, we help local businesses get found and grow — and we work with clients nationwide too. Find your city below." })}
+    desc: "Remote web design, SEO, paid media, content and automation support for businesses serving Austin, Texas and markets nationwide.",
+    content: `${pageHero({ center: true, eyebrow: "Areas we serve", title: "Marketing support,<br>wherever you operate.", lead: "Stoneridge Digital works remotely with service businesses across the United States, with focused support for businesses serving Austin and other Texas markets." })}
 <section><div class="wrap"><div class="related">
-  ${LOCATIONS.map((l, i) => `<a href="marketing-${l.city.toLowerCase().replace(/[^a-z]/g, "-")}.html" class="reveal" data-delay="${i % 3}">${l.city} ${arrow}</a>`).join("\n  ")}
+  ${LOCATIONS.filter(l => l.indexable).map((l, i) => `<a href="marketing-${l.city.toLowerCase().replace(/[^a-z]/g, "-")}.html" class="reveal" data-delay="${i % 3}">${l.city} ${arrow}</a>`).join("\n  ")}
 </div>
-<p class="price-note" style="margin-top:34px;">Not in the metro? We serve local businesses <a href="book.html">nationwide</a> too.</p>
+<p class="price-note" style="margin-top:34px;">We also support businesses throughout Texas and nationwide. <a href="book.html">Tell us where you operate</a> and what you want to improve.</p>
 </div></section>
 ${ctaBand()}`,
   }),
@@ -852,17 +873,17 @@ const indexable = [
   "index.html", "services.html", "websites.html", "seo.html", "aeo.html", "advertising.html",
   "social-content.html", "automation.html", "about.html", "work.html", "industries.html",
   "process.html", "faq.html", "contact.html", "book.html", "seo-audit.html", "blog.html", "locations.html",
-  "industries.html",
   ...INDUSTRY_PAGES.map(i => `${i.slug}.html`),
   ...ARTICLES.map(a => `${a.slug}.html`),
-  ...LOCATIONS.map(l => `marketing-${l.city.toLowerCase().replace(/[^a-z]/g, "-")}.html`),
+  ...cityPages.filter(p => p.indexable).map(p => p.file),
 ];
+const LASTMOD = "2026-09-23";
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${indexable.map(u => `  <url><loc>${DOMAIN}/${u === "index.html" ? "" : u}</loc></url>`).join("\n")}
+${indexable.map(u => `  <url><loc>${DOMAIN}/${u === "index.html" ? "" : u}</loc><lastmod>${LASTMOD}</lastmod></url>`).join("\n")}
 </urlset>
 `;
 fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap);
-fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /privacy.html\nDisallow: /terms.html\nDisallow: /join.html\n\nSitemap: ${DOMAIN}/sitemap.xml\n`);
+fs.writeFileSync(path.join(OUT, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${DOMAIN}/sitemap.xml\n`);
 console.log("wrote sitemap.xml, robots.txt");
 console.log(`\n✔ generated ${n} pages + sitemap + robots`);
