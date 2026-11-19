@@ -5,11 +5,9 @@ body.sub { animation: none; }
 .mobile-menu { visibility: hidden; }
 .mobile-menu.open { visibility: visible; }
 img { max-width: 100%; }
+
+/* A fragment link opens the navigation without waiting for JavaScript. */
 @media (max-width: 960px) {
-  html:not(.navigation-ready) .nav { position: relative; flex-wrap: wrap; gap: 16px; }
-  html:not(.navigation-ready) .nav-links { display: flex; flex: 0 0 100%; order: 3; flex-wrap: wrap; gap: 12px 20px; }
-  html:not(.navigation-ready) .nav-links a { white-space: normal; }
-  html:not(.navigation-ready) .nav-menu-btn,
-  html:not(.navigation-ready) .nav-cta { display: none; }
-  html:not(.navigation-ready) .hero { padding-top: 36px; }
+  .mobile-menu:target { visibility: visible; opacity: 1; pointer-events: auto; }
+  .nav-menu-btn { min-height: 44px; min-width: 44px; place-items: center; }
 }

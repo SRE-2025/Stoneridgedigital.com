@@ -34,12 +34,12 @@
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
   /* ---------- Mobile menu ---------- */
-  const mm = $("#mobileMenu");
-  $("#menuBtn") && $("#menuBtn").addEventListener("click", () => mm.classList.add("open"));
-  $("#menuClose") && $("#menuClose").addEventListener("click", () => mm.classList.remove("open"));
-  mm && $$("a", mm).forEach(a => a.addEventListener("click", () => mm.classList.remove("open")));
-  // Only hide the working HTML navigation after its enhanced controls are wired.
-  if (mm && $("#menuBtn") && $("#menuClose")) document.documentElement.classList.add("navigation-ready");
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && location.hash === "#mobileMenu") {
+      document.getElementById("menuClose")?.click();
+      document.getElementById("menuBtn")?.focus();
+    }
+  });
 
   /* ---------- Custom cursor ---------- */
   const dot = $("#cDot"), ring = $("#cRing");
@@ -244,7 +244,7 @@
 
   /* ---------- Rotating headline word ---------- */
   const rot = $("#rotWord");
-  if (rot && !reduce) {
+  if (rot && !reduce && window.matchMedia("(min-width: 961px)").matches) {
     const words = (rot.dataset.words || "").split("|").filter(Boolean);
     let i = 0;
     if (words.length) {

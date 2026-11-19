@@ -12,7 +12,7 @@ const OUT = __dirname;
 const INLINE_STYLES = fs.readFileSync(path.join(OUT, 'assets/styles.min.css'), 'utf8') + '\n' + fs.readFileSync(path.join(OUT, 'assets/reliability.css'), 'utf8');
 
 /* ---------- shared bits ---------- */
-const FONT_URL = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap";
+const FONT_URL = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=optional";
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="preload" as="style" href="${FONT_URL}" onload="this.onload=null;this.rel='stylesheet'"><noscript><link href="${FONT_URL}" rel="stylesheet"></noscript>`;
 const FAVICON = `<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f4a37'/%3E%3Cpath d='M6 24 L16 9 L26 24 Z' fill='%23f4eddb'/%3E%3Cpath d='M9 24 L16 13 L23 24 Z' fill='%232f4a37'/%3E%3C/svg%3E">`;
 const arrow = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
@@ -48,11 +48,11 @@ const nav = () => `<nav class="nav" id="nav">
   </div>
   <div class="nav-cta">
     <a href="book.html" class="btn btn-primary" data-hover>Get Started ${arrow}</a>
-    <button class="nav-menu-btn" id="menuBtn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a href="#mobileMenu" aria-controls="mobileMenu" class="nav-menu-btn" id="menuBtn" aria-label="Menu"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
-  <button class="close" id="menuClose" aria-label="Close">&times;</button>
+  <a href="#menuBtn" class="close" id="menuClose" aria-label="Close">&times;</a>
   <a href="services.html">Services</a>
   <a href="work.html">Work</a>
   <a href="about.html">About</a>

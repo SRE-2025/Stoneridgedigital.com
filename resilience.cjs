@@ -16,7 +16,7 @@ for (const name of fs.readdirSync(root).filter(x => x.endsWith('.html'))) {
     .replace(/<link rel="stylesheet" href="assets\/styles\.min\.css[^\"]*">/, () => style)
     .replace(/<script>document\.documentElement\.classList\.add\('js'\);<\/script>\s*/, '')
     .replace(/<div class="intro" id="intro">/, '<div class="intro" id="intro" hidden aria-hidden="true">')
-    .replace(/<script src="assets\/app\.min\.js[^\"]*"><\/script>/,
+    .replace(/<script(?: defer)? src="assets\/app\.min\.js[^\"]*"><\/script>/,
       `<script defer src="assets/app.min.js?v=${version}"></script>`);
   fs.writeFileSync(file, html);
   count++;
