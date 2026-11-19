@@ -1,0 +1,15 @@
+/* Content and navigation remain usable if optional scripts never download. */
+#intro { display: none !important; }
+.reveal, html.js .reveal, html.js .reveal[data-anim] { opacity: 1; transform: none; }
+body.sub { animation: none; }
+.mobile-menu { visibility: hidden; }
+.mobile-menu.open { visibility: visible; }
+img { max-width: 100%; }
+@media (max-width: 960px) {
+  html:not(.navigation-ready) .nav { position: relative; flex-wrap: wrap; gap: 16px; }
+  html:not(.navigation-ready) .nav-links { display: flex; flex: 0 0 100%; order: 3; flex-wrap: wrap; gap: 12px 20px; }
+  html:not(.navigation-ready) .nav-links a { white-space: normal; }
+  html:not(.navigation-ready) .nav-menu-btn,
+  html:not(.navigation-ready) .nav-cta { display: none; }
+  html:not(.navigation-ready) .hero { padding-top: 36px; }
+}

@@ -8,6 +8,8 @@
 const fs = require("fs");
 const path = require("path");
 const OUT = __dirname;
+// Embed the small design system so a failed extra CSS request cannot unstyle a page.
+const INLINE_STYLES = fs.readFileSync(path.join(OUT, 'assets/styles.min.css'), 'utf8') + '\n' + fs.readFileSync(path.join(OUT, 'assets/reliability.css'), 'utf8');
 
 /* ---------- shared bits ---------- */
 const FONT_URL = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap";
@@ -151,8 +153,7 @@ ${noindex ? '<meta name="robots" content="noindex,follow">\n' : `<meta name="rob
 <meta name="twitter:image" content="${OGIMG}">
 <meta name="twitter:image:alt" content="Stoneridge Digital — marketing built for local growth">
 ${FONTS}
-<link rel="stylesheet" href="assets/styles.min.css?v=${V}">
-<script>document.documentElement.classList.add('js');</script>
+<style id="stoneridge-styles">${INLINE_STYLES}</style>
 ${FAVICON}
 ${allSchema}
 <!-- ANALYTICS: paste your GA4 or Plausible snippet below to enable tracking.
@@ -167,7 +168,7 @@ ${nav()}
 ${content}
 </main>
 ${footer()}
-<script src="assets/app.min.js?v=${V}"></script>
+<script defer src="assets/app.min.js?v=${V}"></script>
 </body>
 </html>`;
 };

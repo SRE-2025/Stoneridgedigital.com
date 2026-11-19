@@ -38,6 +38,8 @@
   $("#menuBtn") && $("#menuBtn").addEventListener("click", () => mm.classList.add("open"));
   $("#menuClose") && $("#menuClose").addEventListener("click", () => mm.classList.remove("open"));
   mm && $$("a", mm).forEach(a => a.addEventListener("click", () => mm.classList.remove("open")));
+  // Only hide the working HTML navigation after its enhanced controls are wired.
+  if (mm && $("#menuBtn") && $("#menuClose")) document.documentElement.classList.add("navigation-ready");
 
   /* ---------- Custom cursor ---------- */
   const dot = $("#cDot"), ring = $("#cRing");
@@ -238,17 +240,7 @@
 
   /* ===================== FEATURE MODULES ===================== */
 
-  /* ---------- Intro / preloader ---------- */
-  const intro = $("#intro");
-  if (intro) {
-    const finish = () => intro.classList.add("done");
-    if (reduce) { document.documentElement.classList.add("no-intro"); }
-    else {
-      window.addEventListener("load", () => setTimeout(finish, 1900));
-      setTimeout(finish, 3200); // safety
-      intro.addEventListener("click", finish);
-    }
-  }
+  // Page content is available immediately; loading never waits for a splash screen.
 
   /* ---------- Rotating headline word ---------- */
   const rot = $("#rotWord");
