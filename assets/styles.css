@@ -387,7 +387,7 @@ html.no-intro .intro { display: none; }
 /* ---------- Hero parallax mountains ---------- */
 .hero { position: relative; }
 .hero-mtns { position: absolute; left: 0; right: 0; bottom: 0; height: 40%; z-index: 0; pointer-events: none; overflow: hidden; }
-.hero-mtns svg { position: absolute; bottom: 0; width: 120%; left: -10%; height: 100%; }
+.hero-mtns svg { position: absolute; bottom: 0; width: 120%; max-width: none; left: -10%; height: 100%; }
 /* fade the top of the mountains into the paper so overlapping text stays readable */
 .hero-mtns::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 62%; background: linear-gradient(to bottom, var(--paper) 12%, rgba(246,241,230,0.55) 55%, transparent); }
 .hero-mtns .layer { will-change: transform; }
